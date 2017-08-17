@@ -14,6 +14,9 @@
 		4388F4AD1F45691F00A985AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */; };
 		4388F4B81F45691F00A985AF /* SmartPenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4B71F45691F00A985AF /* SmartPenTests.swift */; };
 		4388F4C31F45691F00A985AF /* SmartPenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4C21F45691F00A985AF /* SmartPenUITests.swift */; };
+		4388F4D81F456BE800A985AF /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4D71F456BE800A985AF /* Shapes.swift */; };
+		4388F4DA1F456C2500A985AF /* ShapePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4D91F456C2500A985AF /* ShapePath.swift */; };
+		4388F4E01F456FB600A985AF /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4DF1F456FB600A985AF /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		4388F4BE1F45691F00A985AF /* SmartPenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4388F4C21F45691F00A985AF /* SmartPenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPenUITests.swift; sourceTree = "<group>"; };
 		4388F4C41F45691F00A985AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4388F4D71F456BE800A985AF /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
+		4388F4D91F456C2500A985AF /* ShapePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapePath.swift; sourceTree = "<group>"; };
+		4388F4DF1F456FB600A985AF /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +103,11 @@
 		4388F4A11F45691F00A985AF /* SmartPen */ = {
 			isa = PBXGroup;
 			children = (
+				4388F4D21F45694500A985AF /* View */,
+				4388F4D11F45693A00A985AF /* Controller */,
+				4388F4D01F45692C00A985AF /* Model */,
 				4388F4A21F45691F00A985AF /* AppDelegate.swift */,
-				4388F4A41F45691F00A985AF /* ViewController.swift */,
-				4388F4A61F45691F00A985AF /* Main.storyboard */,
 				4388F4A91F45691F00A985AF /* Assets.xcassets */,
-				4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */,
 				4388F4AE1F45691F00A985AF /* Info.plist */,
 			);
 			path = SmartPen;
@@ -123,6 +129,33 @@
 				4388F4C41F45691F00A985AF /* Info.plist */,
 			);
 			path = SmartPenUITests;
+			sourceTree = "<group>";
+		};
+		4388F4D01F45692C00A985AF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4388F4D71F456BE800A985AF /* Shapes.swift */,
+				4388F4D91F456C2500A985AF /* ShapePath.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4388F4D11F45693A00A985AF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4388F4DF1F456FB600A985AF /* CustomColors.swift */,
+				4388F4A41F45691F00A985AF /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4388F4D21F45694500A985AF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4388F4A61F45691F00A985AF /* Main.storyboard */,
+				4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +292,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4388F4DA1F456C2500A985AF /* ShapePath.swift in Sources */,
+				4388F4E01F456FB600A985AF /* CustomColors.swift in Sources */,
 				4388F4A51F45691F00A985AF /* ViewController.swift in Sources */,
 				4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */,
+				4388F4D81F456BE800A985AF /* Shapes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

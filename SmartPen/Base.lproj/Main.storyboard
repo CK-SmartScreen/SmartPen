@@ -1,26 +1,153 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SmartPen" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49P-y8-hza">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GgQ-9R-muY">
+                                <rect key="frame" x="8" y="28" width="304" height="43"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k93-3Q-JqO">
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="43"/>
+                                        <state key="normal" title="Button" image="icon_0008_pen02"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oh3-oE-AEP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-gZ-Ida">
+                                        <rect key="frame" x="31" y="0.0" width="26" height="43"/>
+                                        <state key="normal" title="Button" image="icon_0009_circle02"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIu-QI-KkT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-ef-ShC">
+                                        <rect key="frame" x="62" y="0.0" width="25.5" height="43"/>
+                                        <state key="normal" title="Button" image="icon_0010_square02"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTl-yK-WLQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-UB-SXh">
+                                        <rect key="frame" x="92.5" y="0.0" width="26" height="43"/>
+                                        <state key="normal" title="Button" image="icon_0011_line02"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZlM-MA-QaW"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-7p-YLX">
+                                        <rect key="frame" x="123.5" y="0.0" width="26" height="43"/>
+                                        <state key="normal" image="icon_0001_red"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dfm-Yx-8T9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmN-ic-rpM">
+                                        <rect key="frame" x="154.5" y="0.0" width="26" height="43"/>
+                                        <state key="normal" image="icon_0002_yellow"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gXs-TD-P3u"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgW-qT-jmd">
+                                        <rect key="frame" x="185.5" y="0.0" width="26" height="43"/>
+                                        <state key="normal" image="icon_0003_green"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jWn-zc-tY4"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww0-Wh-cOc">
+                                        <rect key="frame" x="216.5" y="0.0" width="25.5" height="43"/>
+                                        <state key="normal" image="icon_0004_blue"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eqc-ul-0b9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACk-oj-fxK">
+                                        <rect key="frame" x="247" y="0.0" width="26" height="43"/>
+                                        <state key="normal" image="icon_0005_purple"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ceb-xK-XFm"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-ss-bHj">
+                                        <rect key="frame" x="278" y="0.0" width="26" height="43"/>
+                                        <state key="normal" title="Button" image="icon_0012_delete01"/>
+                                        <connections>
+                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cGA-Eg-0d1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="GgQ-9R-muY" secondAttribute="trailing" constant="8" id="BZ8-fC-T9z"/>
+                            <constraint firstItem="49P-y8-hza" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Dl2-cE-H1q"/>
+                            <constraint firstItem="GgQ-9R-muY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="H4a-Tb-9dX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="49P-y8-hza" secondAttribute="bottom" id="mOJ-2a-Htx"/>
+                            <constraint firstItem="49P-y8-hza" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tbU-un-UaP"/>
+                            <constraint firstAttribute="trailing" secondItem="49P-y8-hza" secondAttribute="trailing" id="vTE-Fs-xBR"/>
+                            <constraint firstItem="GgQ-9R-muY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="zvQ-r1-vLr"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="uFA-Hd-DlB" appends="YES" id="A5k-KN-cZ5"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="blue" destination="ww0-Wh-cOc" id="XaH-2i-HA1"/>
+                        <outlet property="delete" destination="AIM-ss-bHj" id="XnM-EZ-Mcf"/>
+                        <outlet property="freeStyle" destination="k93-3Q-JqO" id="l8O-N9-sf8"/>
+                        <outlet property="green" destination="zgW-qT-jmd" id="XI8-ZT-8MS"/>
+                        <outlet property="line" destination="jPT-UB-SXh" id="o5Z-4G-XaU"/>
+                        <outlet property="oval" destination="rBs-gZ-Ida" id="SOe-iM-Bik"/>
+                        <outlet property="purple" destination="ACk-oj-fxK" id="vGr-lr-VBH"/>
+                        <outlet property="rect" destination="1wp-ef-ShC" id="7Ui-2w-k5V"/>
+                        <outlet property="red" destination="4Rc-7p-YLX" id="xz9-39-1x4"/>
+                        <outlet property="yellow" destination="MmN-ic-rpM" id="dmK-hj-NPB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="uFA-Hd-DlB">
+                    <connections>
+                        <action selector="handlePan:" destination="BYZ-38-t0r" id="uBt-lf-0p0"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
+            <point key="canvasLocation" x="82.5" y="34.859154929577464"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_0001_red" width="12" height="12"/>
+        <image name="icon_0002_yellow" width="12" height="12"/>
+        <image name="icon_0003_green" width="12" height="12"/>
+        <image name="icon_0004_blue" width="12" height="12"/>
+        <image name="icon_0005_purple" width="12" height="12"/>
+        <image name="icon_0008_pen02" width="38" height="38"/>
+        <image name="icon_0009_circle02" width="39" height="39"/>
+        <image name="icon_0010_square02" width="44" height="34"/>
+        <image name="icon_0011_line02" width="34" height="34"/>
+        <image name="icon_0012_delete01" width="43" height="43"/>
+    </resources>
 </document>
