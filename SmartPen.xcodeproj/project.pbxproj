@@ -1,0 +1,530 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4A21F45691F00A985AF /* AppDelegate.swift */; };
+		4388F4A51F45691F00A985AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4A41F45691F00A985AF /* ViewController.swift */; };
+		4388F4A81F45691F00A985AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4A61F45691F00A985AF /* Main.storyboard */; };
+		4388F4AA1F45691F00A985AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4A91F45691F00A985AF /* Assets.xcassets */; };
+		4388F4AD1F45691F00A985AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */; };
+		4388F4B81F45691F00A985AF /* SmartPenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4B71F45691F00A985AF /* SmartPenTests.swift */; };
+		4388F4C31F45691F00A985AF /* SmartPenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4C21F45691F00A985AF /* SmartPenUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4388F4B41F45691F00A985AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4388F4971F45691F00A985AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4388F49E1F45691F00A985AF;
+			remoteInfo = SmartPen;
+		};
+		4388F4BF1F45691F00A985AF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4388F4971F45691F00A985AF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4388F49E1F45691F00A985AF;
+			remoteInfo = SmartPen;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4388F49F1F45691F00A985AF /* SmartPen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPen.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4388F4A21F45691F00A985AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4388F4A41F45691F00A985AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4388F4A71F45691F00A985AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4388F4A91F45691F00A985AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4388F4AC1F45691F00A985AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4388F4AE1F45691F00A985AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4388F4B31F45691F00A985AF /* SmartPenTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPenTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4388F4B71F45691F00A985AF /* SmartPenTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPenTests.swift; sourceTree = "<group>"; };
+		4388F4B91F45691F00A985AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4388F4BE1F45691F00A985AF /* SmartPenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4388F4C21F45691F00A985AF /* SmartPenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPenUITests.swift; sourceTree = "<group>"; };
+		4388F4C41F45691F00A985AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4388F49C1F45691F00A985AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4388F4B01F45691F00A985AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4388F4BB1F45691F00A985AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4388F4961F45691F00A985AF = {
+			isa = PBXGroup;
+			children = (
+				4388F4A11F45691F00A985AF /* SmartPen */,
+				4388F4B61F45691F00A985AF /* SmartPenTests */,
+				4388F4C11F45691F00A985AF /* SmartPenUITests */,
+				4388F4A01F45691F00A985AF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4388F4A01F45691F00A985AF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4388F49F1F45691F00A985AF /* SmartPen.app */,
+				4388F4B31F45691F00A985AF /* SmartPenTests.xctest */,
+				4388F4BE1F45691F00A985AF /* SmartPenUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4388F4A11F45691F00A985AF /* SmartPen */ = {
+			isa = PBXGroup;
+			children = (
+				4388F4A21F45691F00A985AF /* AppDelegate.swift */,
+				4388F4A41F45691F00A985AF /* ViewController.swift */,
+				4388F4A61F45691F00A985AF /* Main.storyboard */,
+				4388F4A91F45691F00A985AF /* Assets.xcassets */,
+				4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */,
+				4388F4AE1F45691F00A985AF /* Info.plist */,
+			);
+			path = SmartPen;
+			sourceTree = "<group>";
+		};
+		4388F4B61F45691F00A985AF /* SmartPenTests */ = {
+			isa = PBXGroup;
+			children = (
+				4388F4B71F45691F00A985AF /* SmartPenTests.swift */,
+				4388F4B91F45691F00A985AF /* Info.plist */,
+			);
+			path = SmartPenTests;
+			sourceTree = "<group>";
+		};
+		4388F4C11F45691F00A985AF /* SmartPenUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4388F4C21F45691F00A985AF /* SmartPenUITests.swift */,
+				4388F4C41F45691F00A985AF /* Info.plist */,
+			);
+			path = SmartPenUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4388F49E1F45691F00A985AF /* SmartPen */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4388F4C71F45691F00A985AF /* Build configuration list for PBXNativeTarget "SmartPen" */;
+			buildPhases = (
+				4388F49B1F45691F00A985AF /* Sources */,
+				4388F49C1F45691F00A985AF /* Frameworks */,
+				4388F49D1F45691F00A985AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartPen;
+			productName = SmartPen;
+			productReference = 4388F49F1F45691F00A985AF /* SmartPen.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4388F4B21F45691F00A985AF /* SmartPenTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4388F4CA1F45691F00A985AF /* Build configuration list for PBXNativeTarget "SmartPenTests" */;
+			buildPhases = (
+				4388F4AF1F45691F00A985AF /* Sources */,
+				4388F4B01F45691F00A985AF /* Frameworks */,
+				4388F4B11F45691F00A985AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4388F4B51F45691F00A985AF /* PBXTargetDependency */,
+			);
+			name = SmartPenTests;
+			productName = SmartPenTests;
+			productReference = 4388F4B31F45691F00A985AF /* SmartPenTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4388F4BD1F45691F00A985AF /* SmartPenUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4388F4CD1F45691F00A985AF /* Build configuration list for PBXNativeTarget "SmartPenUITests" */;
+			buildPhases = (
+				4388F4BA1F45691F00A985AF /* Sources */,
+				4388F4BB1F45691F00A985AF /* Frameworks */,
+				4388F4BC1F45691F00A985AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4388F4C01F45691F00A985AF /* PBXTargetDependency */,
+			);
+			name = SmartPenUITests;
+			productName = SmartPenUITests;
+			productReference = 4388F4BE1F45691F00A985AF /* SmartPenUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4388F4971F45691F00A985AF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Chunkai Meng";
+				TargetAttributes = {
+					4388F49E1F45691F00A985AF = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+					};
+					4388F4B21F45691F00A985AF = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4388F49E1F45691F00A985AF;
+					};
+					4388F4BD1F45691F00A985AF = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 4388F49E1F45691F00A985AF;
+					};
+				};
+			};
+			buildConfigurationList = 4388F49A1F45691F00A985AF /* Build configuration list for PBXProject "SmartPen" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4388F4961F45691F00A985AF;
+			productRefGroup = 4388F4A01F45691F00A985AF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4388F49E1F45691F00A985AF /* SmartPen */,
+				4388F4B21F45691F00A985AF /* SmartPenTests */,
+				4388F4BD1F45691F00A985AF /* SmartPenUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4388F49D1F45691F00A985AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4388F4AD1F45691F00A985AF /* LaunchScreen.storyboard in Resources */,
+				4388F4AA1F45691F00A985AF /* Assets.xcassets in Resources */,
+				4388F4A81F45691F00A985AF /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4388F4B11F45691F00A985AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4388F4BC1F45691F00A985AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4388F49B1F45691F00A985AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4388F4A51F45691F00A985AF /* ViewController.swift in Sources */,
+				4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4388F4AF1F45691F00A985AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4388F4B81F45691F00A985AF /* SmartPenTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4388F4BA1F45691F00A985AF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4388F4C31F45691F00A985AF /* SmartPenUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4388F4B51F45691F00A985AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4388F49E1F45691F00A985AF /* SmartPen */;
+			targetProxy = 4388F4B41F45691F00A985AF /* PBXContainerItemProxy */;
+		};
+		4388F4C01F45691F00A985AF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4388F49E1F45691F00A985AF /* SmartPen */;
+			targetProxy = 4388F4BF1F45691F00A985AF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4388F4A61F45691F00A985AF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4388F4A71F45691F00A985AF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4388F4AC1F45691F00A985AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4388F4C51F45691F00A985AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4388F4C61F45691F00A985AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4388F4C81F45691F00A985AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SmartPen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ID-1494933.SmartPen";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		4388F4C91F45691F00A985AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = SmartPen/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ID-1494933.SmartPen";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		4388F4CB1F45691F00A985AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartPenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ID-1494933.SmartPenTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPen.app/SmartPen";
+			};
+			name = Debug;
+		};
+		4388F4CC1F45691F00A985AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = SmartPenTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ID-1494933.SmartPenTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartPen.app/SmartPen";
+			};
+			name = Release;
+		};
+		4388F4CE1F45691F00A985AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = SmartPenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ID-1494933.SmartPenUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SmartPen;
+			};
+			name = Debug;
+		};
+		4388F4CF1F45691F00A985AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = SmartPenUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "ID-1494933.SmartPenUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = SmartPen;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4388F49A1F45691F00A985AF /* Build configuration list for PBXProject "SmartPen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4388F4C51F45691F00A985AF /* Debug */,
+				4388F4C61F45691F00A985AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4388F4C71F45691F00A985AF /* Build configuration list for PBXNativeTarget "SmartPen" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4388F4C81F45691F00A985AF /* Debug */,
+				4388F4C91F45691F00A985AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4388F4CA1F45691F00A985AF /* Build configuration list for PBXNativeTarget "SmartPenTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4388F4CB1F45691F00A985AF /* Debug */,
+				4388F4CC1F45691F00A985AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4388F4CD1F45691F00A985AF /* Build configuration list for PBXNativeTarget "SmartPenUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4388F4CE1F45691F00A985AF /* Debug */,
+				4388F4CF1F45691F00A985AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4388F4971F45691F00A985AF /* Project object */;
+}
