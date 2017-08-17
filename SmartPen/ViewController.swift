@@ -26,10 +26,19 @@ class ViewController: UIViewController {
     var endPoint: CGPoint = CGPoint.zero
     var customPath : UIBezierPath?
     var layer : CAShapeLayer?
+    
     var selectedShape = Shapes.freeStyle
+    var selectedColor = UIColor.transparentRed.cgColor
+    
     var lineCap:String = kCALineCapRound
+    
     let shapeArray = [Shapes.freeStyle, Shapes.oval, Shapes.rectangle, Shapes.line]
-
+    let colorArray = [UIColor.transparentRed.cgColor,
+                      UIColor.transparentYellow.cgColor,
+                      UIColor.transparentGreen.cgColor,
+                      UIColor.transparentBlue.cgColor,
+                      UIColor.transparentPurple.cgColor]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -64,9 +73,9 @@ class ViewController: UIViewController {
             customPath = UIBezierPath()
             startPoint = sender.location(in: sender.view)
             layer = CAShapeLayer()
-            layer?.fillColor = UIColor.transparentBlue.cgColor
-            layer?.lineWidth = 1.0
-            layer?.strokeColor = UIColor.blue.cgColor
+            layer?.fillColor = selectedColor
+            layer?.lineWidth = 3.0
+            layer?.strokeColor = selectedColor
             layer?.lineCap = lineCap
             self.view.layer.addSublayer(layer!)
         }
@@ -101,6 +110,9 @@ class ViewController: UIViewController {
         selectedShape = shapeArray[sender.tag]
     }
     
+    @IBAction func colorDidSelect(_ sender: UIButton) {
+        selectedColor = colorArray[sender.tag]
+    }
     
     
 }

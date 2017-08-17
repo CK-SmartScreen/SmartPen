@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SmartPen/ViewController.swift"
-            timestampString = "524646104.923287"
+            timestampString = "524648592.457578"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
             landmarkName = "handlePan(_:)"
             landmarkType = "7">
          </BreakpointContent>
