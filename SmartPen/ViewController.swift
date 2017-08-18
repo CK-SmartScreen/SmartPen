@@ -20,52 +20,66 @@ class ViewController: UIViewController {
     @IBOutlet weak var blue: UIButton!
     @IBOutlet weak var purple: UIButton!
     @IBOutlet weak var delete: UIButton!
+    @IBOutlet weak var label: UILabel!
     
+    lazy var shapeButtonArray: [(UIButton, String)] = { return [(self.freeStyle!, "icon_button_freestyle02"),
+                                                                (self.oval!, "icon_button_oval02"),
+                                                                (self.rect!, "icon_button_rectangle02"),
+                                                                (self.line!, "icon_button_line02")] }()
     
+    lazy var colorButtonArray: [(UIButton, CGColor)] = { return [(self.red!, UIColor.transparentRed.cgColor),
+                                                                 (self.yellow!, UIColor.transparentYellow.cgColor),
+                                                                 (self.green!, UIColor.transparentGreen.cgColor),
+                                                                 (self.blue!, UIColor.transparentBlue.cgColor),
+                                                                 (self.purple!, UIColor.transparentPurple.cgColor)] }()
     var startPoint: CGPoint = CGPoint.zero
     var endPoint: CGPoint = CGPoint.zero
     var customPath : UIBezierPath?
     var layer : CAShapeLayer?
-    
-    var selectedShape = Shapes.freeStyle
+    var lineCap:String = kCALineCapRound
     var selectedColor = UIColor.transparentRed.cgColor
     
-    var lineCap:String = kCALineCapRound
+    var selectedColorButton: Int = 0 {
+        willSet(newButton){
+            colorButtonArray[newButton].0.backgroundColor = UIColor.colorButtonBackground
+        }
+        didSet(oldButton){
+            colorButtonArray[oldButton].0.backgroundColor = UIColor.white
+        }
+    }
     
-    let shapeArray = [Shapes.freeStyle, Shapes.oval, Shapes.rectangle, Shapes.line]
-    let colorArray = [UIColor.transparentRed.cgColor,
-                      UIColor.transparentYellow.cgColor,
-                      UIColor.transparentGreen.cgColor,
-                      UIColor.transparentBlue.cgColor,
-                      UIColor.transparentPurple.cgColor]
+
+    var selectedShape = Shapes.freeStyle {
+        willSet(newShape) {
+            // Set the selected button with highlighted image
+            let (activeButton, iconName) = shapeButtonArray[newShape.rawValue]
+            activeButton.setImage(UIImage(named: iconName), for: UIControlState.normal)
+        }
+        didSet(oldShape){
+            // Set the unselected button without highlighted image
+            let (activeButton, _) = shapeButtonArray[oldShape.rawValue]
+            activeButton.setImage(UIImage(named: ""), for: UIControlState.normal)
+        }
+    }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-//        red.layer.cornerRadius = 3
-//        red.layer.borderWidth = 1
-//        red.layer.borderColor = UIColor.cyan.cgColor
-//        green.layer.cornerRadius = 3
-//        green.layer.borderWidth = 1
-//        green.layer.borderColor = UIColor.cyan.cgColor
-//        yellow.layer.cornerRadius = 3
-//        yellow.layer.borderWidth = 1
-//        yellow.layer.borderColor = UIColor.cyan.cgColor
-//        blue.layer.cornerRadius = 3
-//        blue.layer.borderWidth = 1
-//        blue.layer.borderColor = UIColor.cyan.cgColor
-//        purple.layer.cornerRadius = 3
-//        purple.layer.borderWidth = 1
-//        purple.layer.borderColor = UIColor.cyan.cgColor
-//        delete.frame = CGRect(x: 0, y: 0 , width: 3, height: 3)
+        // Set default selected button
+        let btnImage = UIImage(named: "icon_button_freestyle02")
+        freeStyle.setImage(btnImage, for: UIControlState.normal)
         
+        // Set default selected color
+        red.backgroundColor = UIColor.colorButtonBackground
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
 
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
         if sender.state == .began
@@ -83,19 +97,19 @@ class ViewController: UIViewController {
         {
             switch selectedShape
             {
-            case Shapes.oval:
+            case .oval:
                 let translation = sender.translation(in: sender.view)
                 layer?.path = ShapePath().oval(startPoint: startPoint, translationPoint: translation).cgPath
                 
-            case Shapes.rectangle:
+            case .rectangle:
                 let translation = sender.translation(in: sender.view)
                 layer?.path = ShapePath().rectangle(startPoint: startPoint, translationPoint: translation).cgPath
                 
-            case Shapes.line:
+            case .line:
                 endPoint = sender.location(in: sender.view)
                 layer?.path = ShapePath().line(startPoint: startPoint, endPoint: endPoint).cgPath
                 
-            case Shapes.freeStyle:
+            case .freeStyle:
                 endPoint = sender.location(in: sender.view)
                 customPath?.move(to: startPoint)
                 customPath?.addLine(to: endPoint)
@@ -107,13 +121,13 @@ class ViewController: UIViewController {
     }
 
     @IBAction func shapeDidSelect(_ sender: UIButton) {
-        selectedShape = shapeArray[sender.tag]
+        selectedShape = Shapes(rawValue: sender.tag)!
     }
     
     @IBAction func colorDidSelect(_ sender: UIButton) {
-        selectedColor = colorArray[sender.tag]
+        (_, selectedColor) = colorButtonArray[sender.tag]
+        selectedColorButton = sender.tag
     }
-    
     
 }
 

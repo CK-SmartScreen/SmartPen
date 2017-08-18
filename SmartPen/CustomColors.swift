@@ -35,6 +35,11 @@ extension UIColor
         return UIColor (red: 0.5, green: 0, blue: 0.5, alpha: 1)
     }
     
+    class var colorButtonBackground: UIColor
+    {
+        return UIColor (red: 63/255, green: 125/255, blue: 182/255, alpha: 1)
+    }
+    
     class var veryDarkGreen: UIColor
     {
         return UIColor.rgb(fromHex: 0x008110)

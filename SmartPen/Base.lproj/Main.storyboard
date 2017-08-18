@@ -25,79 +25,80 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GgQ-9R-muY">
-                                <rect key="frame" x="8" y="28" width="304" height="43"/>
+                                <rect key="frame" x="8" y="28" width="304" height="25"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k93-3Q-JqO">
-                                        <rect key="frame" x="0.0" y="0.0" width="26" height="43"/>
-                                        <state key="normal" title="Button" image="icon_0008_pen02"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="25"/>
+                                        <state key="normal" backgroundImage="icon_button_freestyle01"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oh3-oE-AEP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-gZ-Ida">
-                                        <rect key="frame" x="31" y="0.0" width="26" height="43"/>
-                                        <state key="normal" title="Button" image="icon_0009_circle02"/>
+                                        <rect key="frame" x="31" y="0.0" width="26" height="25"/>
+                                        <state key="normal" backgroundImage="icon_button_oval01"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIu-QI-KkT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-ef-ShC">
-                                        <rect key="frame" x="62" y="0.0" width="25.5" height="43"/>
-                                        <state key="normal" title="Button" image="icon_0010_square02"/>
+                                        <rect key="frame" x="62" y="0.0" width="25.5" height="25"/>
+                                        <state key="normal" backgroundImage="icon_button_rectangle01"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTl-yK-WLQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-UB-SXh">
-                                        <rect key="frame" x="92.5" y="0.0" width="26" height="43"/>
-                                        <state key="normal" title="Button" image="icon_0011_line02"/>
+                                        <rect key="frame" x="92.5" y="0.0" width="26" height="25"/>
+                                        <state key="normal" backgroundImage="icon_button_line01"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZlM-MA-QaW"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Rc-7p-YLX">
-                                        <rect key="frame" x="123.5" y="0.0" width="26" height="43"/>
-                                        <state key="normal" image="icon_0001_red"/>
+                                        <rect key="frame" x="123.5" y="0.0" width="26" height="25"/>
+                                        <color key="backgroundColor" red="0.24810795485973358" green="0.49089506268501282" blue="0.71381556987762451" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" image="icon_color_red"/>
                                         <connections>
                                             <action selector="colorDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6K0-yF-THv"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MmN-ic-rpM">
-                                        <rect key="frame" x="154.5" y="0.0" width="26" height="43"/>
-                                        <state key="normal" image="icon_0002_yellow"/>
+                                        <rect key="frame" x="154.5" y="0.0" width="26" height="25"/>
+                                        <state key="normal" image="icon_color_yellow"/>
                                         <connections>
                                             <action selector="colorDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sAo-t1-8dO"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgW-qT-jmd">
-                                        <rect key="frame" x="185.5" y="0.0" width="26" height="43"/>
-                                        <state key="normal" image="icon_0003_green"/>
+                                        <rect key="frame" x="185.5" y="0.0" width="26" height="25"/>
+                                        <state key="normal" image="icon_color_green"/>
                                         <connections>
                                             <action selector="colorDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fHZ-Ld-hbJ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ww0-Wh-cOc">
-                                        <rect key="frame" x="216.5" y="0.0" width="25.5" height="43"/>
-                                        <state key="normal" image="icon_0004_blue"/>
+                                        <rect key="frame" x="216.5" y="0.0" width="25.5" height="25"/>
+                                        <state key="normal" image="icon_color_blue"/>
                                         <connections>
                                             <action selector="colorDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5uo-Lh-7ru"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACk-oj-fxK">
-                                        <rect key="frame" x="247" y="0.0" width="26" height="43"/>
-                                        <state key="normal" image="icon_0005_purple"/>
+                                        <rect key="frame" x="247" y="0.0" width="26" height="25"/>
+                                        <state key="normal" image="icon_color_purple"/>
                                         <connections>
                                             <action selector="colorDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EUt-1H-vBR"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-ss-bHj">
-                                        <rect key="frame" x="278" y="0.0" width="26" height="43"/>
-                                        <state key="normal" title="Button" image="icon_0012_delete01"/>
-                                        <connections>
-                                            <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cGA-Eg-0d1"/>
-                                        </connections>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-ss-bHj">
+                                        <rect key="frame" x="278" y="0.0" width="26" height="25"/>
+                                        <state key="normal" backgroundImage="icon_button_delete01"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="oQd-5k-nwC"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -135,19 +136,19 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="82.5" y="34.859154929577464"/>
+            <point key="canvasLocation" x="-317" y="-136"/>
         </scene>
     </scenes>
     <resources>
-        <image name="icon_0001_red" width="12" height="12"/>
-        <image name="icon_0002_yellow" width="12" height="12"/>
-        <image name="icon_0003_green" width="12" height="12"/>
-        <image name="icon_0004_blue" width="12" height="12"/>
-        <image name="icon_0005_purple" width="12" height="12"/>
-        <image name="icon_0008_pen02" width="38" height="38"/>
-        <image name="icon_0009_circle02" width="39" height="39"/>
-        <image name="icon_0010_square02" width="44" height="34"/>
-        <image name="icon_0011_line02" width="34" height="34"/>
-        <image name="icon_0012_delete01" width="43" height="43"/>
+        <image name="icon_button_delete01" width="43" height="43"/>
+        <image name="icon_button_freestyle01" width="38" height="38"/>
+        <image name="icon_button_line01" width="34" height="34"/>
+        <image name="icon_button_oval01" width="39" height="39"/>
+        <image name="icon_button_rectangle01" width="44" height="34"/>
+        <image name="icon_color_blue" width="12" height="12"/>
+        <image name="icon_color_green" width="12" height="12"/>
+        <image name="icon_color_purple" width="12" height="12"/>
+        <image name="icon_color_red" width="12" height="12"/>
+        <image name="icon_color_yellow" width="12" height="12"/>
     </resources>
 </document>
