@@ -32,6 +32,10 @@ class ViewController: UIViewController {
                                                                  (self.green!, UIColor.transparentGreen.cgColor),
                                                                  (self.blue!, UIColor.transparentBlue.cgColor),
                                                                  (self.purple!, UIColor.transparentPurple.cgColor)] }()
+    var redColorValue: CGFloat = 0.0
+    var greenColorValue: CGFloat = 0.0
+    var blueColorValue: CGFloat = 0.0
+    
     var startPoint: CGPoint = CGPoint.zero
     var endPoint: CGPoint = CGPoint.zero
     var customPath : UIBezierPath?
@@ -87,9 +91,13 @@ class ViewController: UIViewController {
             customPath = UIBezierPath()
             startPoint = sender.location(in: sender.view)
             layer = CAShapeLayer()
-            layer?.fillColor = selectedColor
             layer?.lineWidth = 3.0
-            layer?.strokeColor = selectedColor
+//            layer?.strokeColor = selectedColor
+            let cclor = UIColor(red: redColorValue, green: greenColorValue, blue: blueColorValue, alpha: 1)
+            layer?.strokeColor = cclor.cgColor
+//          layer?.fillColor = selectedColor
+            layer?.fillColor = cclor.cgColor
+            
             layer?.lineCap = lineCap
             self.view.layer.addSublayer(layer!)
         }
@@ -129,5 +137,24 @@ class ViewController: UIViewController {
         selectedColorButton = sender.tag
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let settingsViewController = segue.destination as! SettingsViewController
+        settingsViewController.delegate = self
+        settingsViewController.redColorValue = redColorValue
+        settingsViewController.greenColorValue = greenColorValue
+        settingsViewController.blueColorValue = blueColorValue
+        
+    }
+    
 }
+
+extension ViewController: SettingsViewControllerDelegate {
+    func settingsViewControllerFinished(_ settingsViewController: SettingsViewController) {
+        self.redColorValue = settingsViewController.redColorValue
+        self.greenColorValue = settingsViewController.greenColorValue
+        self.blueColorValue = settingsViewController.blueColorValue
+    }
+}
+
 
