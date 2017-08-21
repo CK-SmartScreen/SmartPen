@@ -26,29 +26,50 @@ class ViewController: UIViewController {
                                                                 (self.oval!, "icon_button_oval02"),
                                                                 (self.rect!, "icon_button_rectangle02"),
                                                                 (self.line!, "icon_button_line02")] }()
-    
-    lazy var colorButtonArray: [(UIButton, CGColor)] = { return [(self.red!, UIColor.transparentRed.cgColor),
-                                                                 (self.yellow!, UIColor.transparentYellow.cgColor),
-                                                                 (self.green!, UIColor.transparentGreen.cgColor),
-                                                                 (self.blue!, UIColor.transparentBlue.cgColor),
-                                                                 (self.purple!, UIColor.transparentPurple.cgColor)] }()
-    var redColorValue: CGFloat = 0.0
-    var greenColorValue: CGFloat = 0.0
-    var blueColorValue: CGFloat = 0.0
-    
+
+    var colorButtonArray: [UIButton] = []
     var startPoint: CGPoint = CGPoint.zero
     var endPoint: CGPoint = CGPoint.zero
     var customPath : UIBezierPath?
     var layer : CAShapeLayer?
     var lineCap:String = kCALineCapRound
-    var selectedColor = UIColor.transparentRed.cgColor
-    
-    var selectedColorButton: Int = 0 {
+    var redColorValue: CGFloat = 255.0
+    var greenColorValue: CGFloat = 0.0
+    var blueColorValue: CGFloat = 0.0
+    var customColor: CGColor?
+    var lineWidth: CGFloat = 3.0
+    var opacty: CGFloat = 0.8
+    var selectedColor: CGColor {
+        get {
+            if let colorName = ColorButton(rawValue: selectedColorTag) {
+                // Choose the cooresponding cgColor according to the color Palette
+                let color = colorGroupDict[colorName]!.copy(alpha: opacty)!
+                return color
+            } else {
+                return customColor!
+            }
+        }
+    }
+
+    var selectedColorTag: Int = 0 {
         willSet(newButton){
-            colorButtonArray[newButton].0.backgroundColor = UIColor.colorButtonBackground
+            if newButton != -1 {
+                // Highlight the select Color Button
+                colorButtonArray[newButton].backgroundColor = UIColor.colorButtonBackground
+            }
         }
         didSet(oldButton){
-            colorButtonArray[oldButton].0.backgroundColor = UIColor.white
+            if oldButton != selectedColorTag && oldButton != -1 {
+//                print("old Button: \(oldButton) \n new Button: \(selectedColorTag)")
+                colorButtonArray[oldButton].backgroundColor = UIColor.white
+            }
+            if selectedColorTag != -1 {
+                // Modify the Setting View's color value
+                redColorValue = (selectedColor.components?[0])!
+                greenColorValue = (selectedColor.components?[1])!
+                blueColorValue = (selectedColor.components?[2])!
+//                print("tag: \(selectedColorTag) \t red:" + String(describing: redColorValue))
+            }
         }
     }
     
@@ -56,13 +77,15 @@ class ViewController: UIViewController {
     var selectedShape = Shapes.freeStyle {
         willSet(newShape) {
             // Set the selected button with highlighted image
-            let (activeButton, iconName) = shapeButtonArray[newShape.rawValue]
-            activeButton.setImage(UIImage(named: iconName), for: UIControlState.normal)
+            let (activeButton, iconFile) = shapeButtonArray[newShape.rawValue]
+            activeButton.setImage(UIImage(named: iconFile), for: UIControlState.normal)
         }
         didSet(oldShape){
             // Set the unselected button without highlighted image
-            let (activeButton, _) = shapeButtonArray[oldShape.rawValue]
-            activeButton.setImage(UIImage(named: ""), for: UIControlState.normal)
+            if oldShape != selectedShape {
+                let (activeButton, _) = shapeButtonArray[oldShape.rawValue]
+                activeButton.setImage(UIImage(named: ""), for: UIControlState.normal)
+            }
         }
     }
     
@@ -70,13 +93,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // Set default selected button
-        let btnImage = UIImage(named: "icon_button_freestyle02")
-        freeStyle.setImage(btnImage, for: UIControlState.normal)
-        
-        // Set default selected color
+
+        // Initialize default Shape
+        selectedShape = Shapes.freeStyle
+
+        // Initialize default color
         red.backgroundColor = UIColor.colorButtonBackground
+        
+        // Order according to enum property "colorButton", for highlighting the selected button
+        colorButtonArray = [red, yellow, green, blue, purple]
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,13 +116,9 @@ class ViewController: UIViewController {
             customPath = UIBezierPath()
             startPoint = sender.location(in: sender.view)
             layer = CAShapeLayer()
-            layer?.lineWidth = 3.0
-//            layer?.strokeColor = selectedColor
-            let cclor = UIColor(red: redColorValue, green: greenColorValue, blue: blueColorValue, alpha: 1)
-            layer?.strokeColor = cclor.cgColor
-//          layer?.fillColor = selectedColor
-            layer?.fillColor = cclor.cgColor
-            
+            layer?.lineWidth = lineWidth
+            layer?.strokeColor = selectedColor
+            layer?.fillColor = selectedColor
             layer?.lineCap = lineCap
             self.view.layer.addSublayer(layer!)
         }
@@ -133,20 +154,16 @@ class ViewController: UIViewController {
     }
     
     @IBAction func colorDidSelect(_ sender: UIButton) {
-        (_, selectedColor) = colorButtonArray[sender.tag]
-        selectedColorButton = sender.tag
+        selectedColorTag = sender.tag
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         let settingsViewController = segue.destination as! SettingsViewController
         settingsViewController.delegate = self
         settingsViewController.redColorValue = redColorValue
         settingsViewController.greenColorValue = greenColorValue
         settingsViewController.blueColorValue = blueColorValue
-        
     }
-    
 }
 
 extension ViewController: SettingsViewControllerDelegate {
@@ -154,7 +171,19 @@ extension ViewController: SettingsViewControllerDelegate {
         self.redColorValue = settingsViewController.redColorValue
         self.greenColorValue = settingsViewController.greenColorValue
         self.blueColorValue = settingsViewController.blueColorValue
+        
+        // If custom color is in the default color group,
+        // just reset the selected Button Tag
+        // Otherwise, set the selected Color into custom color.
+        let x = { UIColor(red: self.redColorValue, green: self.greenColorValue, blue: self.blueColorValue, alpha: 1) }()
+        self.customColor = x.cgColor
+
+        if let index = colorGroupDict.index(where: { $0.value == customColor }) {
+//            print("Good: \(String(describing: colorGroupDict[index].value.components))")
+            self.selectedColorTag = colorGroupDict[index].key.rawValue
+        } else {
+            // Notify the computed property selectedColor to select custom color
+            self.selectedColorTag = -1
+        }
     }
 }
-
-

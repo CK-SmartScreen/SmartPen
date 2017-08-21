@@ -43,13 +43,13 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        sliderRed.value = Float(redColorValue)
+        sliderRed.value = Float(redColorValue * 255)
         redLabel.text = String(format: "%d", Int(sliderRed.value)) as String
         
-        sliderGreen.value = Float(greenColorValue)
+        sliderGreen.value = Float(greenColorValue * 255)
         greenLabel.text = String(format: "%d", Int(sliderGreen.value)) as String
         
-        sliderBlue.value = Float(blueColorValue)
+        sliderBlue.value = Float(blueColorValue * 255)
         blueLabel.text = String(format: "%d", Int(sliderBlue.value)) as String
         
     }
