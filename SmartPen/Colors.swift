@@ -17,9 +17,3 @@ enum ColorButton: Int {
     case white
 }
 
-let colorGroupDict = [ColorButton.red: UIColor.red.cgColor,
-                      ColorButton.yellow: UIColor.yellow.cgColor,
-                      ColorButton.green: UIColor.green.cgColor,
-                      ColorButton.blue: UIColor.blue.cgColor,
-                      ColorButton.purple: UIColor.purple.cgColor,
-                      ColorButton.white: UIColor.white.cgColor]

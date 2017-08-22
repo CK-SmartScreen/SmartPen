@@ -14,5 +14,6 @@ enum Shapes : Int
     case oval
     case rectangle
     case line
+    case eraser
     //Add more shapes here
 }

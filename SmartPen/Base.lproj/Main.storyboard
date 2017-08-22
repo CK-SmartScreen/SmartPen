@@ -138,16 +138,16 @@
                         </connections>
                     </view>
                     <connections>
-                        <outlet property="blue" destination="ww0-Wh-cOc" id="XaH-2i-HA1"/>
+                        <outlet property="blueButton" destination="ww0-Wh-cOc" id="Qe9-bY-ubz"/>
                         <outlet property="eraser" destination="AIM-ss-bHj" id="POD-Tg-wwq"/>
                         <outlet property="freeStyle" destination="k93-3Q-JqO" id="l8O-N9-sf8"/>
-                        <outlet property="green" destination="zgW-qT-jmd" id="XI8-ZT-8MS"/>
+                        <outlet property="greenButton" destination="zgW-qT-jmd" id="V94-da-HGt"/>
                         <outlet property="line" destination="jPT-UB-SXh" id="o5Z-4G-XaU"/>
                         <outlet property="oval" destination="rBs-gZ-Ida" id="SOe-iM-Bik"/>
-                        <outlet property="purple" destination="ACk-oj-fxK" id="vGr-lr-VBH"/>
+                        <outlet property="purpleButton" destination="ACk-oj-fxK" id="Opj-7O-jJE"/>
                         <outlet property="rect" destination="1wp-ef-ShC" id="7Ui-2w-k5V"/>
-                        <outlet property="red" destination="4Rc-7p-YLX" id="xz9-39-1x4"/>
-                        <outlet property="yellow" destination="MmN-ic-rpM" id="dmK-hj-NPB"/>
+                        <outlet property="redButton" destination="4Rc-7p-YLX" id="tck-v4-76O"/>
+                        <outlet property="yellowButton" destination="MmN-ic-rpM" id="1wv-0C-xYR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

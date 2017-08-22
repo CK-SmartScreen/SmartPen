@@ -14,14 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var oval: UIButton!
     @IBOutlet weak var rect: UIButton!
     @IBOutlet weak var line: UIButton!
-    @IBOutlet weak var red: UIButton!
-    @IBOutlet weak var yellow: UIButton!
-    @IBOutlet weak var green: UIButton!
-    @IBOutlet weak var blue: UIButton!
-    @IBOutlet weak var purple: UIButton!
-
     @IBOutlet weak var eraser: UIButton!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var redButton: UIButton!
+    @IBOutlet weak var yellowButton: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var blueButton: UIButton!
+    @IBOutlet weak var purpleButton: UIButton!
     
     lazy var shapeButtonArray: [(UIButton, String)] = { return [(self.freeStyle!, "icon_button_freestyle02"),
                                                                 (self.oval!, "icon_button_oval02"),
@@ -41,44 +40,42 @@ class ViewController: UIViewController {
     var lineWidth: CGFloat = 0.0
     var opacity: CGFloat = 0.0
 
-    var selectedColor: CGColor {
-        get {
+    var ifUsingEaser = false
 
-            if let colorName = ColorButton(rawValue: selectedColorTag) {
-
-                // color from Palette
-                let color = colorGroupDict[colorName]!
-                return color.copy(alpha: opacity)!
-
-            } else {
-
-                // color from setting view
-                return customColor!.copy(alpha: opacity)!
-
-            }
-        }
+    //------------
+    let currentBrush = Brush()
+    var buttonColorMappingArray: [(button: UIButton, (red: CGFloat, green: CGFloat, blue: CGFloat))] = []
+    var buttonBackgroundColor: UIColor {
+        return UIColor(red: 63/255, green: 125/255, blue: 182/255, alpha: 1)
     }
 
     var selectedColorTag: Int = 0 {
 
-        willSet(newButton){
+        willSet(newButtonTag){
 
+            if newButtonTag == -1 {
+                // New color comes from setting view, no button to highligh
+                return
+            }
             // Highlight the select Color Button
-            if newButton != -1 {
-                colorButtonArray[newButton].backgroundColor = UIColor.colorButtonBackground
-            }
-
+            buttonColorMappingArray[newButtonTag].button.backgroundColor = buttonBackgroundColor
         }
-        didSet(oldButton){
+        didSet(oldButtonTag){
 
-            if oldButton != selectedColorTag && oldButton != -1 {
-                colorButtonArray[oldButton].backgroundColor = UIColor.white
+            // if click the same color button
+            if oldButtonTag == selectedColorTag || oldButtonTag == -1 {
+                return
             }
-            if selectedColorTag != -1 {
+
+            // Remove hight from old button
+            buttonColorMappingArray[oldButtonTag].button.backgroundColor = UIColor.white
+
+            // Sync the color value used in SettingViewController
+            if 0 <= selectedColorTag && selectedColorTag <= 4 {
                 // Modify the Setting View's color value
-                redColorValue = (selectedColor.components?[0])!
-                greenColorValue = (selectedColor.components?[1])!
-                blueColorValue = (selectedColor.components?[2])!
+                redColorValue = currentBrush.red
+                greenColorValue = currentBrush.green
+                blueColorValue = currentBrush.blue
             }
         }
     }
@@ -113,70 +110,101 @@ class ViewController: UIViewController {
         selectedShape = Shapes.freeStyle
 
         // Initialize default color
-        red.backgroundColor = UIColor.colorButtonBackground
+        redButton.backgroundColor = buttonBackgroundColor
         
         // Order according to enum property "colorButton", for highlighting the selected button
-        colorButtonArray = [red, yellow, green, blue, purple, eraser]
+//        colorButtonArray = [red, yellow, green, blue, purple, eraser]
+
+        //---------
+        buttonColorMappingArray = [(button: self.redButton , (red: 1, green: 0, blue: 0)),
+                                   (button: self.yellowButton, (red: 1, green: 1, blue: 0)),
+                                   (button: self.greenButton, (red: 0, green: 1, blue: 0)),
+                                   (button: self.blueButton, (red: 0, green: 0, blue: 1)),
+                                   (button: self.purpleButton, (red: 0.5, green: 0, blue: 0.5))]
+
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
-        if sender.state == .began
-        {
-            customPath = UIBezierPath()
-            startPoint = sender.location(in: sender.view)
-            layer = CAShapeLayer()
-            layer?.lineWidth = lineWidth
-            layer?.strokeColor = selectedColor
-            layer?.fillColor = selectedColor
-            layer?.lineCap = lineCap
-            self.view.layer.addSublayer(layer!)
+
+        if ifUsingEaser {
+            currentBrush.erase(Recognizer: sender, superLayer: self.view.layer)
+        } else {
+            currentBrush.draw(Recognizer: sender, superLayer: self.view.layer)
         }
-        else if sender.state == .changed
-        {
-            switch selectedShape
-            {
-            case .oval:
-                let translation = sender.translation(in: sender.view)
-                layer?.path = ShapePath().oval(startPoint: startPoint, translationPoint: translation).cgPath
-                
-            case .rectangle:
-                let translation = sender.translation(in: sender.view)
-                layer?.path = ShapePath().rectangle(startPoint: startPoint, translationPoint: translation).cgPath
-                
-            case .line:
-                endPoint = sender.location(in: sender.view)
-                layer?.path = ShapePath().line(startPoint: startPoint, endPoint: endPoint).cgPath
-                
-            case .freeStyle:
-                endPoint = sender.location(in: sender.view)
-                customPath?.move(to: startPoint)
-                customPath?.addLine(to: endPoint)
-                startPoint = endPoint
-                customPath?.close()
-                layer?.path = customPath?.cgPath
-            }
-        }
+
+//----------------
+//        if sender.state == .began
+//        {
+//            customPath = UIBezierPath()
+//            startPoint = sender.location(in: sender.view)
+//            layer = CAShapeLayer()
+//            layer?.lineWidth = lineWidth
+//            layer?.strokeColor = selectedColor
+//            layer?.fillColor = selectedColor
+//            layer?.lineCap = lineCap
+//            self.view.layer.addSublayer(layer!)
+//        }
+//        else if sender.state == .changed
+//        {
+//
+//            switch selectedShape
+//            {
+//            case .oval:
+//                let translation = sender.translation(in: sender.view)
+//                layer?.path = ShapePath().oval(startPoint: startPoint, translationPoint: translation).cgPath
+//                
+//            case .rectangle:
+//                let translation = sender.translation(in: sender.view)
+//                layer?.path = ShapePath().rectangle(startPoint: startPoint, translationPoint: translation).cgPath
+//                
+//            case .line:
+//                endPoint = sender.location(in: sender.view)
+//                layer?.path = ShapePath().line(startPoint: startPoint, endPoint: endPoint).cgPath
+//                
+//            case .freeStyle:
+//                endPoint = sender.location(in: sender.view)
+//                customPath?.move(to: startPoint)
+//                customPath?.addLine(to: endPoint)
+//                startPoint = endPoint
+//                customPath?.close()
+//                layer?.path = customPath?.cgPath
+//                
+//            default:
+//                endPoint = sender.location(in: sender.view)
+//                customPath?.move(to: startPoint)
+//                customPath?.addLine(to: endPoint)
+//                startPoint = endPoint
+//                customPath?.close()
+//                layer?.path = customPath?.cgPath
+//            }
+//        }
     }
 
     @IBAction func shapeDidSelect(_ sender: UIButton) {
 
         selectedShape = Shapes(rawValue: sender.tag)!
+        currentBrush.selectedShape = Brush.Shape(rawValue: sender.tag)!
+        ifUsingEaser = false
     }
     
     @IBAction func colorDidSelect(_ sender: UIButton) {
 
         selectedColorTag = sender.tag
+        currentBrush.red = buttonColorMappingArray[selectedColorTag].1.red
+        currentBrush.green = buttonColorMappingArray[selectedColorTag].1.green
+        currentBrush.blue = buttonColorMappingArray[selectedColorTag].1.blue
     }
 
     @IBAction func erase(_ sender: Any) {
 
-        selectedColorTag = 5
+        ifUsingEaser = true
     }
 
 
@@ -185,11 +213,11 @@ class ViewController: UIViewController {
 
         let settingsViewController = segue.destination as! SettingsViewController
         settingsViewController.delegate = self
-        settingsViewController.redColorValue = redColorValue
-        settingsViewController.greenColorValue = greenColorValue
-        settingsViewController.blueColorValue = blueColorValue
-        settingsViewController.opacity = opacity
-        settingsViewController.lineWidth = lineWidth
+        settingsViewController.redColorValue = currentBrush.red
+        settingsViewController.greenColorValue = currentBrush.green
+        settingsViewController.blueColorValue = currentBrush.blue
+        settingsViewController.opacity = currentBrush.opacty
+        settingsViewController.lineWidth = currentBrush.size
     }
 }
 
@@ -197,22 +225,22 @@ extension ViewController: SettingsViewControllerDelegate {
 
     func settingsViewControllerFinished(_ settingsViewController: SettingsViewController) {
 
-        self.redColorValue = settingsViewController.redColorValue
-        self.greenColorValue = settingsViewController.greenColorValue
-        self.blueColorValue = settingsViewController.blueColorValue
-        self.opacity = settingsViewController.opacity
-        self.lineWidth = settingsViewController.lineWidth
-        
-        // If custom color is in the default color group,
-        // just reset the selected Button Tag
-        // Otherwise, set the selected Color into custom color.
-        let x = { UIColor(red: self.redColorValue, green: self.greenColorValue, blue: self.blueColorValue, alpha: 1) }()
-        self.customColor = x.cgColor
-        if let index = colorGroupDict.index(where: { $0.value == customColor }) {
-            self.selectedColorTag = colorGroupDict[index].key.rawValue
-        } else {
-            // Notify the computed property selectedColor to select custom color
+        // If color setting is not changed
+        if self.currentBrush.red == settingsViewController.redColorValue &&
+            self.currentBrush.green == settingsViewController.greenColorValue &&
+            self.currentBrush.blue == settingsViewController.blueColorValue {
+
+            self.currentBrush.opacty = settingsViewController.opacity
+            self.currentBrush.size = settingsViewController.lineWidth
+
+        } else // if color changed get the new color from Setting View
+        {
+            self.currentBrush.red = settingsViewController.redColorValue
+            self.currentBrush.green = settingsViewController.greenColorValue
+            self.currentBrush.blue = settingsViewController.blueColorValue
+
             self.selectedColorTag = -1
         }
+
     }
 }

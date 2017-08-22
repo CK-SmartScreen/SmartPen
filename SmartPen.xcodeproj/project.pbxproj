@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4366F5061F48569A00129A61 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4366F5051F48569A00129A61 /* SettingsViewController.swift */; };
+		4375E18B1F4C119D0053A453 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375E18A1F4C119D0053A453 /* Brush.swift */; };
 		4388A44C1F498B0C00B4654E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388A44B1F498B0C00B4654E /* Colors.swift */; };
 		4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4A21F45691F00A985AF /* AppDelegate.swift */; };
 		4388F4A51F45691F00A985AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4A41F45691F00A985AF /* ViewController.swift */; };
@@ -18,7 +19,6 @@
 		4388F4C31F45691F00A985AF /* SmartPenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4C21F45691F00A985AF /* SmartPenUITests.swift */; };
 		4388F4D81F456BE800A985AF /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4D71F456BE800A985AF /* Shapes.swift */; };
 		4388F4DA1F456C2500A985AF /* ShapePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4D91F456C2500A985AF /* ShapePath.swift */; };
-		4388F4E01F456FB600A985AF /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4DF1F456FB600A985AF /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		4366F5051F48569A00129A61 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4375E18A1F4C119D0053A453 /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
 		4388A44B1F498B0C00B4654E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4388F49F1F45691F00A985AF /* SmartPen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4388F4A21F45691F00A985AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,7 +57,6 @@
 		4388F4C41F45691F00A985AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4388F4D71F456BE800A985AF /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		4388F4D91F456C2500A985AF /* ShapePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapePath.swift; sourceTree = "<group>"; };
-		4388F4DF1F456FB600A985AF /* CustomColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,9 +147,9 @@
 		4388F4D11F45693A00A985AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4388F4DF1F456FB600A985AF /* CustomColors.swift */,
 				4388F4A41F45691F00A985AF /* ViewController.swift */,
 				4366F5051F48569A00129A61 /* SettingsViewController.swift */,
+				4375E18A1F4C119D0053A453 /* Brush.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -307,7 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4388F4DA1F456C2500A985AF /* ShapePath.swift in Sources */,
-				4388F4E01F456FB600A985AF /* CustomColors.swift in Sources */,
+				4375E18B1F4C119D0053A453 /* Brush.swift in Sources */,
 				4388F4A51F45691F00A985AF /* ViewController.swift in Sources */,
 				4388A44C1F498B0C00B4654E /* Colors.swift in Sources */,
 				4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */,
