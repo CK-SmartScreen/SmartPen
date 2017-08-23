@@ -120,8 +120,8 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56x-Kr-CJh">
-                                <rect key="frame" x="178" y="28" width="19" height="22"/>
-                                <state key="normal" image="icon_color_normal"/>
+                                <rect key="frame" x="178.5" y="28" width="18" height="22"/>
+                                <state key="normal" image="icon_save_save_normal"/>
                                 <connections>
                                     <action selector="saveArtwork:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y53-XL-yya"/>
                                 </connections>
@@ -306,16 +306,16 @@
         <image name="brushBackground" width="128" height="128"/>
         <image name="icon_color_blue" width="12" height="12"/>
         <image name="icon_color_green" width="12" height="12"/>
-        <image name="icon_color_normal" width="19" height="18"/>
         <image name="icon_color_purple" width="12" height="12"/>
         <image name="icon_color_red" width="12" height="12"/>
         <image name="icon_color_yellow" width="12" height="12"/>
         <image name="icon_delete_normal" width="21" height="21"/>
         <image name="icon_eraser_normal" width="20" height="19"/>
         <image name="icon_freestyle_normal" width="19" height="19"/>
-        <image name="icon_line_normal" width="17" height="17"/>
+        <image name="icon_line_normal" width="19" height="19"/>
         <image name="icon_oval_normal" width="19" height="19"/>
         <image name="icon_rectangle_normal" width="22" height="17"/>
+        <image name="icon_save_save_normal" width="18" height="18"/>
         <image name="icon_setting_normal" width="19" height="19"/>
     </resources>
 </document>

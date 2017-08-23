@@ -126,8 +126,10 @@ class ViewController: UIViewController {
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
 
         if ifUsingEaser {
+
             currentBrush.erase(Recognizer: sender, superLayer: imageView.layer)
         } else {
+
             currentBrush.draw(Recognizer: sender, superLayer: imageView.layer)
         }
     }
