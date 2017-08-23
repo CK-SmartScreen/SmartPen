@@ -21,12 +21,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var purpleButton: UIButton!
-    
-    lazy var shapeButtonArray: [(UIButton, String)] = { return [(self.freeStyle!, "icon_button_freestyle02"),
-                                                                (self.oval!, "icon_button_oval02"),
-                                                                (self.rect!, "icon_button_rectangle02"),
-                                                                (self.line!, "icon_button_line02")] }()
+    @IBOutlet weak var imageView: UIImageView!
 
+    
+    lazy var shapeButtonArray: [(UIButton, String)] = { return [(self.freeStyle!, "icon_freestyle"),
+                                                                (self.oval!, "icon_oval"),
+                                                                (self.rect!, "icon_rectangle"),
+                                                                (self.line!, "icon_line"),
+                                                                (self.eraser!, "icon_eraser")] }()
     var colorButtonArray: [UIButton] = []
     var startPoint: CGPoint = CGPoint.zero
     var endPoint: CGPoint = CGPoint.zero
@@ -36,13 +38,9 @@ class ViewController: UIViewController {
     var redColorValue: CGFloat = 1.0
     var greenColorValue: CGFloat = 0.0
     var blueColorValue: CGFloat = 0.0
-    var customColor: CGColor?
-    var lineWidth: CGFloat = 0.0
-    var opacity: CGFloat = 0.0
-
     var ifUsingEaser = false
 
-    //------------
+    // Create a new Brush
     let currentBrush = Brush()
     var buttonColorMappingArray: [(button: UIButton, (red: CGFloat, green: CGFloat, blue: CGFloat))] = []
     var buttonBackgroundColor: UIColor {
@@ -54,9 +52,11 @@ class ViewController: UIViewController {
         willSet(newButtonTag){
 
             if newButtonTag == -1 {
+
                 // New color comes from setting view, no button to highligh
                 return
             }
+
             // Highlight the select Color Button
             buttonColorMappingArray[newButtonTag].button.backgroundColor = buttonBackgroundColor
         }
@@ -79,112 +79,57 @@ class ViewController: UIViewController {
             }
         }
     }
-    
 
+    // Change Button Highlight
     var selectedShape = Shapes.freeStyle {
 
         willSet(newShape) {
+
             // Set the selected button with highlighted image
-            let (activeButton, iconFile) = shapeButtonArray[newShape.rawValue]
-            activeButton.setImage(UIImage(named: iconFile), for: UIControlState.normal)
+            var (activeButton, iconFile) = shapeButtonArray[newShape.rawValue]
+            iconFile += "_highlight"
+            activeButton.setBackgroundImage(UIImage(named: iconFile), for: .normal)
         }
         didSet(oldShape){
+
             // Set the unselected button without highlighted image
             if oldShape != selectedShape {
-                let (activeButton, _) = shapeButtonArray[oldShape.rawValue]
-                activeButton.setImage(UIImage(named: ""), for: UIControlState.normal)
+                var (activeButton, iconFile) = shapeButtonArray[oldShape.rawValue]
+                iconFile += "_normal"
+                activeButton.setBackgroundImage(UIImage(named: iconFile), for: .normal)
             }
         }
     }
-    
 
     override func viewDidLoad() {
 
         super.viewDidLoad()
+
         // Do any additional setup after loading the view, typically from a nib.
-
-        lineWidth = 3
-        opacity = 1.0
-
-        // Initialize default Shape
-        selectedShape = Shapes.freeStyle
-
-        // Initialize default color
-        redButton.backgroundColor = buttonBackgroundColor
-        
-        // Order according to enum property "colorButton", for highlighting the selected button
-//        colorButtonArray = [red, yellow, green, blue, purple, eraser]
-
-        //---------
         buttonColorMappingArray = [(button: self.redButton , (red: 1, green: 0, blue: 0)),
                                    (button: self.yellowButton, (red: 1, green: 1, blue: 0)),
                                    (button: self.greenButton, (red: 0, green: 1, blue: 0)),
                                    (button: self.blueButton, (red: 0, green: 0, blue: 1)),
                                    (button: self.purpleButton, (red: 0.5, green: 0, blue: 0.5))]
 
-
+        // Highlight default butons
+        selectedShape = .freeStyle
+        selectedColorTag = 0
     }
 
     override func didReceiveMemoryWarning() {
+
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-
     @IBAction func handlePan(_ sender: UIPanGestureRecognizer) {
 
         if ifUsingEaser {
-            currentBrush.erase(Recognizer: sender, superLayer: self.view.layer)
+            currentBrush.erase(Recognizer: sender, superLayer: imageView.layer)
         } else {
-            currentBrush.draw(Recognizer: sender, superLayer: self.view.layer)
+            currentBrush.draw(Recognizer: sender, superLayer: imageView.layer)
         }
-
-//----------------
-//        if sender.state == .began
-//        {
-//            customPath = UIBezierPath()
-//            startPoint = sender.location(in: sender.view)
-//            layer = CAShapeLayer()
-//            layer?.lineWidth = lineWidth
-//            layer?.strokeColor = selectedColor
-//            layer?.fillColor = selectedColor
-//            layer?.lineCap = lineCap
-//            self.view.layer.addSublayer(layer!)
-//        }
-//        else if sender.state == .changed
-//        {
-//
-//            switch selectedShape
-//            {
-//            case .oval:
-//                let translation = sender.translation(in: sender.view)
-//                layer?.path = ShapePath().oval(startPoint: startPoint, translationPoint: translation).cgPath
-//                
-//            case .rectangle:
-//                let translation = sender.translation(in: sender.view)
-//                layer?.path = ShapePath().rectangle(startPoint: startPoint, translationPoint: translation).cgPath
-//                
-//            case .line:
-//                endPoint = sender.location(in: sender.view)
-//                layer?.path = ShapePath().line(startPoint: startPoint, endPoint: endPoint).cgPath
-//                
-//            case .freeStyle:
-//                endPoint = sender.location(in: sender.view)
-//                customPath?.move(to: startPoint)
-//                customPath?.addLine(to: endPoint)
-//                startPoint = endPoint
-//                customPath?.close()
-//                layer?.path = customPath?.cgPath
-//                
-//            default:
-//                endPoint = sender.location(in: sender.view)
-//                customPath?.move(to: startPoint)
-//                customPath?.addLine(to: endPoint)
-//                startPoint = endPoint
-//                customPath?.close()
-//                layer?.path = customPath?.cgPath
-//            }
-//        }
     }
 
     @IBAction func shapeDidSelect(_ sender: UIButton) {
@@ -205,10 +150,35 @@ class ViewController: UIViewController {
     @IBAction func erase(_ sender: Any) {
 
         ifUsingEaser = true
+        selectedShape = .eraser
     }
 
+    @IBAction func saveArtwork(_ sender: Any) {
 
-    
+        UIGraphicsBeginImageContext(self.imageView.bounds.size)
+        imageView.layer.render(in: UIGraphicsGetCurrentContext()!)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+        present(activity, animated: true, completion: nil)
+    }
+
+    @IBAction func deleteView(_ sender: Any) {
+
+        let alertController = UIAlertController(title: "Delete", message: "Permanently delete your artwork, is this what you intented to do?", preferredStyle: UIAlertControllerStyle.alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let okAction = UIAlertAction(title: "Continue", style: .default) { (UIAlertAction) in
+            self.imageView.layer.sublayers = nil
+        }
+
+        alertController.addAction(cancelAction)
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let settingsViewController = segue.destination as! SettingsViewController
@@ -225,22 +195,22 @@ extension ViewController: SettingsViewControllerDelegate {
 
     func settingsViewControllerFinished(_ settingsViewController: SettingsViewController) {
 
-        // If color setting is not changed
         if self.currentBrush.red == settingsViewController.redColorValue &&
             self.currentBrush.green == settingsViewController.greenColorValue &&
-            self.currentBrush.blue == settingsViewController.blueColorValue {
-
+            self.currentBrush.blue == settingsViewController.blueColorValue
+        {
+        // If color setting didn't change
+        // Get new opacty & size
             self.currentBrush.opacty = settingsViewController.opacity
             self.currentBrush.size = settingsViewController.lineWidth
-
-        } else // if color changed get the new color from Setting View
-        {
+        } else {
+        // Get the new color from Setting View
             self.currentBrush.red = settingsViewController.redColorValue
             self.currentBrush.green = settingsViewController.greenColorValue
             self.currentBrush.blue = settingsViewController.blueColorValue
 
+        // remove highlight from color button
             self.selectedColorTag = -1
         }
-
     }
 }

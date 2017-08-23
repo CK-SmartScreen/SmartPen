@@ -30,28 +30,28 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k93-3Q-JqO">
                                         <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
-                                        <state key="normal" backgroundImage="icon_button_freestyle01"/>
+                                        <state key="normal" backgroundImage="icon_freestyle_normal"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oh3-oE-AEP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBs-gZ-Ida">
                                         <rect key="frame" x="31" y="0.0" width="26" height="26"/>
-                                        <state key="normal" backgroundImage="icon_button_oval01"/>
+                                        <state key="normal" backgroundImage="icon_oval_normal"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QIu-QI-KkT"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1wp-ef-ShC">
                                         <rect key="frame" x="62" y="0.0" width="25.5" height="26"/>
-                                        <state key="normal" backgroundImage="icon_button_rectangle01"/>
+                                        <state key="normal" backgroundImage="icon_rectangle_normal"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aTl-yK-WLQ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPT-UB-SXh">
                                         <rect key="frame" x="92.5" y="0.0" width="26" height="26"/>
-                                        <state key="normal" backgroundImage="icon_button_line01"/>
+                                        <state key="normal" backgroundImage="icon_line_normal"/>
                                         <connections>
                                             <action selector="shapeDidSelect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZlM-MA-QaW"/>
                                         </connections>
@@ -94,7 +94,7 @@
                                     </button>
                                     <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIM-ss-bHj">
                                         <rect key="frame" x="278" y="0.0" width="26" height="26"/>
-                                        <state key="normal" backgroundImage="icon_button_delete01"/>
+                                        <state key="normal" backgroundImage="icon_eraser_normal"/>
                                         <connections>
                                             <action selector="erase:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2eH-yr-dMl"/>
                                         </connections>
@@ -105,17 +105,25 @@
                                     <constraint firstAttribute="width" constant="304" id="s2c-Im-NCu"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygz-KB-tDl">
-                                <rect key="frame" x="311" y="28" width="40" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Delete"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygz-KB-tDl">
+                                <rect key="frame" x="330" y="28" width="21" height="22"/>
+                                <state key="normal" image="icon_delete_normal"/>
+                                <connections>
+                                    <action selector="deleteView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pqz-L9-tPW"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-Vn-lq0">
-                                <rect key="frame" x="24" y="28" width="44" height="28"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Setting"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-Vn-lq0">
+                                <rect key="frame" x="24" y="28" width="19" height="22"/>
+                                <state key="normal" image="icon_setting_normal"/>
                                 <connections>
                                     <segue destination="euD-vh-XgZ" kind="presentation" modalTransitionStyle="crossDissolve" id="CJd-qX-PCZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56x-Kr-CJh">
+                                <rect key="frame" x="178" y="28" width="19" height="22"/>
+                                <state key="normal" image="icon_color_normal"/>
+                                <connections>
+                                    <action selector="saveArtwork:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y53-XL-yya"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -124,9 +132,11 @@
                         <constraints>
                             <constraint firstItem="pHU-Vn-lq0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="8" id="5A7-7s-NVw"/>
                             <constraint firstItem="49P-y8-hza" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Dl2-cE-H1q"/>
+                            <constraint firstItem="56x-Kr-CJh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="EET-KT-gEl"/>
                             <constraint firstItem="pHU-Vn-lq0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="O33-Cm-tLK"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="GgQ-9R-muY" secondAttribute="bottom" constant="8" id="OPV-Sv-hsD"/>
                             <constraint firstItem="GgQ-9R-muY" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SFJ-KQ-VBa"/>
+                            <constraint firstItem="56x-Kr-CJh" firstAttribute="centerX" secondItem="GgQ-9R-muY" secondAttribute="centerX" id="VKd-8K-vSC"/>
                             <constraint firstItem="Ygz-KB-tDl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ZaQ-Bv-wQx"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ygz-KB-tDl" secondAttribute="trailing" constant="8" id="je2-WI-TaP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="49P-y8-hza" secondAttribute="bottom" id="mOJ-2a-Htx"/>
@@ -142,6 +152,7 @@
                         <outlet property="eraser" destination="AIM-ss-bHj" id="POD-Tg-wwq"/>
                         <outlet property="freeStyle" destination="k93-3Q-JqO" id="l8O-N9-sf8"/>
                         <outlet property="greenButton" destination="zgW-qT-jmd" id="V94-da-HGt"/>
+                        <outlet property="imageView" destination="49P-y8-hza" id="vks-dL-Xaz"/>
                         <outlet property="line" destination="jPT-UB-SXh" id="o5Z-4G-XaU"/>
                         <outlet property="oval" destination="rBs-gZ-Ida" id="SOe-iM-Bik"/>
                         <outlet property="purpleButton" destination="ACk-oj-fxK" id="Opj-7O-jJE"/>
@@ -293,15 +304,18 @@
     </scenes>
     <resources>
         <image name="brushBackground" width="128" height="128"/>
-        <image name="icon_button_delete01" width="43" height="43"/>
-        <image name="icon_button_freestyle01" width="38" height="38"/>
-        <image name="icon_button_line01" width="34" height="34"/>
-        <image name="icon_button_oval01" width="39" height="39"/>
-        <image name="icon_button_rectangle01" width="44" height="34"/>
         <image name="icon_color_blue" width="12" height="12"/>
         <image name="icon_color_green" width="12" height="12"/>
+        <image name="icon_color_normal" width="19" height="18"/>
         <image name="icon_color_purple" width="12" height="12"/>
         <image name="icon_color_red" width="12" height="12"/>
         <image name="icon_color_yellow" width="12" height="12"/>
+        <image name="icon_delete_normal" width="21" height="21"/>
+        <image name="icon_eraser_normal" width="20" height="19"/>
+        <image name="icon_freestyle_normal" width="19" height="19"/>
+        <image name="icon_line_normal" width="17" height="17"/>
+        <image name="icon_oval_normal" width="19" height="19"/>
+        <image name="icon_rectangle_normal" width="22" height="17"/>
+        <image name="icon_setting_normal" width="19" height="19"/>
     </resources>
 </document>
