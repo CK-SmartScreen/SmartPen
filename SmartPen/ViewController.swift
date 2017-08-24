@@ -22,6 +22,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var purpleButton: UIButton!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var settingButton: UIButton!
 
     
     lazy var shapeButtonArray: [(UIButton, String)] = { return [(self.freeStyle!, "icon_freestyle"),
@@ -170,8 +171,8 @@ class ViewController: UIViewController {
     @IBAction func deleteView(_ sender: Any) {
 
         let alertController = UIAlertController(title: "Delete", message: "Permanently delete your artwork, is this what you intented to do?", preferredStyle: UIAlertControllerStyle.alert)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        let okAction = UIAlertAction(title: "Continue", style: .default) { (UIAlertAction) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let okAction = UIAlertAction(title: "Delete", style: .cancel) { (UIAlertAction) in
             self.imageView.layer.sublayers = nil
         }
 

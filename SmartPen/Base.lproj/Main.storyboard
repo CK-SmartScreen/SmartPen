@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -112,16 +112,16 @@
                                     <action selector="deleteView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pqz-L9-tPW"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-Vn-lq0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pHU-Vn-lq0" customClass="SettingButton" customModule="SmartPen" customModuleProvider="target">
                                 <rect key="frame" x="24" y="28" width="19" height="22"/>
                                 <state key="normal" image="icon_setting_normal"/>
                                 <connections>
                                     <segue destination="euD-vh-XgZ" kind="presentation" modalTransitionStyle="crossDissolve" id="CJd-qX-PCZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56x-Kr-CJh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="56x-Kr-CJh" customClass="SavingButton" customModule="SmartPen" customModuleProvider="target">
                                 <rect key="frame" x="178.5" y="28" width="18" height="22"/>
-                                <state key="normal" image="icon_save_save_normal"/>
+                                <state key="normal" image="icon_saving_normal"/>
                                 <connections>
                                     <action selector="saveArtwork:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y53-XL-yya"/>
                                 </connections>
@@ -158,6 +158,7 @@
                         <outlet property="purpleButton" destination="ACk-oj-fxK" id="Opj-7O-jJE"/>
                         <outlet property="rect" destination="1wp-ef-ShC" id="7Ui-2w-k5V"/>
                         <outlet property="redButton" destination="4Rc-7p-YLX" id="tck-v4-76O"/>
+                        <outlet property="settingButton" destination="pHU-Vn-lq0" id="hNY-0W-n0J"/>
                         <outlet property="yellowButton" destination="MmN-ic-rpM" id="1wv-0C-xYR"/>
                     </connections>
                 </viewController>
@@ -315,7 +316,7 @@
         <image name="icon_line_normal" width="19" height="19"/>
         <image name="icon_oval_normal" width="19" height="19"/>
         <image name="icon_rectangle_normal" width="22" height="17"/>
-        <image name="icon_save_save_normal" width="18" height="18"/>
+        <image name="icon_saving_normal" width="18" height="18"/>
         <image name="icon_setting_normal" width="19" height="19"/>
     </resources>
 </document>
