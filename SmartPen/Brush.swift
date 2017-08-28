@@ -20,9 +20,11 @@ class Brush {
 
     enum Shape: Int {
         case freeStyle = 0
+        case line
         case oval
         case rectangle
-        case line
+        case triangle
+        case parallelogram
     }
 
     // Brush Type
@@ -30,7 +32,7 @@ class Brush {
 
     // Brush Style
     var lineCap: String = kCALineCapRound
-    var opacty: CGFloat = 0.8
+    var opacty: CGFloat = 0.85
     var size: CGFloat = 10
     let fillLineWidth: CGFloat = 3
 
@@ -57,7 +59,7 @@ class Brush {
             customPath = UIBezierPath()
             startPoint = sender.location(in: sender.view)
             layer = CAShapeLayer()
-            layer?.lineWidth = (selectedShape == .line || selectedShape == .freeStyle) ? self.size : fillLineWidth
+            layer?.lineWidth = 0
             layer?.strokeColor = self.color
             layer?.fillColor = self.color
             layer?.lineCap = self.lineCap
@@ -76,16 +78,26 @@ class Brush {
                 layer?.path = ShapePath().rectangle(startPoint: startPoint, translationPoint: translation).cgPath
 
             case .line:
+                layer?.lineWidth = self.size
                 endPoint = sender.location(in: sender.view)
                 layer?.path = ShapePath().line(startPoint: startPoint, endPoint: endPoint).cgPath
 
             case .freeStyle:
+                layer?.lineWidth = self.size
                 endPoint = sender.location(in: sender.view)
                 customPath?.move(to: startPoint)
                 customPath?.addLine(to: endPoint)
                 startPoint = endPoint
                 customPath?.close()
                 layer?.path = customPath?.cgPath
+
+            case .triangle:
+                endPoint = sender.location(in: sender.view)
+                layer?.path = ShapePath().triangle(startPoint: startPoint, endPoint: endPoint).cgPath
+
+            case .parallelogram:
+                endPoint = sender.location(in: sender.view)
+                layer?.path = ShapePath().parallelogram(startPoint: startPoint, endPoint: endPoint).cgPath
             }
         }
     }

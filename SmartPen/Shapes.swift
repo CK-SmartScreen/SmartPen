@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum Shapes : Int
-{
-    case freeStyle = 0
-    case oval
-    case rectangle
-    case line
-    case eraser
-    //Add more shapes here
-}
+//enum Shapes : Int
+//{
+//    case freeStyle = 0
+//    case oval
+//    case rectangle
+//    case line
+//    case eraser
+//    //Add more shapes here
+//}

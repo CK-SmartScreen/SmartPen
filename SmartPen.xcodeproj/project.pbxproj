@@ -17,8 +17,14 @@
 		4388F4AD1F45691F00A985AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */; };
 		4388F4B81F45691F00A985AF /* SmartPenTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4B71F45691F00A985AF /* SmartPenTests.swift */; };
 		4388F4C31F45691F00A985AF /* SmartPenUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4C21F45691F00A985AF /* SmartPenUITests.swift */; };
-		4388F4D81F456BE800A985AF /* Shapes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4D71F456BE800A985AF /* Shapes.swift */; };
 		4388F4DA1F456C2500A985AF /* ShapePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4D91F456C2500A985AF /* ShapePath.swift */; };
+		43A25D0F1F52FD3200E25558 /* EraserButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D0E1F52FD3200E25558 /* EraserButton.swift */; };
+		43A25D111F5305B900E25558 /* FreeStyleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D101F5305B900E25558 /* FreeStyleButton.swift */; };
+		43A25D131F53063700E25558 /* LineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D121F53063700E25558 /* LineButton.swift */; };
+		43A25D151F5306CC00E25558 /* RectangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D141F5306CC00E25558 /* RectangleButton.swift */; };
+		43A25D171F53073E00E25558 /* TriangleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D161F53073E00E25558 /* TriangleButton.swift */; };
+		43A25D191F53077500E25558 /* ParallelogramButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D181F53077500E25558 /* ParallelogramButton.swift */; };
+		43A25D1B1F5307CA00E25558 /* OvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D1A1F5307CA00E25558 /* OvalButton.swift */; };
 		6969ACAA1F4E93F5000869B3 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6969ACA91F4E93F5000869B3 /* SettingButton.swift */; };
 		6969ACAC1F4E96E7000869B3 /* SavingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6969ACAB1F4E96E7000869B3 /* SavingButton.swift */; };
 		6969ACAE1F4E9A56000869B3 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6969ACAD1F4E9A56000869B3 /* DeleteButton.swift */; };
@@ -58,8 +64,14 @@
 		4388F4BE1F45691F00A985AF /* SmartPenUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartPenUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4388F4C21F45691F00A985AF /* SmartPenUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartPenUITests.swift; sourceTree = "<group>"; };
 		4388F4C41F45691F00A985AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4388F4D71F456BE800A985AF /* Shapes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shapes.swift; sourceTree = "<group>"; };
 		4388F4D91F456C2500A985AF /* ShapePath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShapePath.swift; sourceTree = "<group>"; };
+		43A25D0E1F52FD3200E25558 /* EraserButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EraserButton.swift; sourceTree = "<group>"; };
+		43A25D101F5305B900E25558 /* FreeStyleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FreeStyleButton.swift; sourceTree = "<group>"; };
+		43A25D121F53063700E25558 /* LineButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineButton.swift; sourceTree = "<group>"; };
+		43A25D141F5306CC00E25558 /* RectangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleButton.swift; sourceTree = "<group>"; };
+		43A25D161F53073E00E25558 /* TriangleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TriangleButton.swift; sourceTree = "<group>"; };
+		43A25D181F53077500E25558 /* ParallelogramButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParallelogramButton.swift; sourceTree = "<group>"; };
+		43A25D1A1F5307CA00E25558 /* OvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvalButton.swift; sourceTree = "<group>"; };
 		6969ACA91F4E93F5000869B3 /* SettingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		6969ACAB1F4E96E7000869B3 /* SavingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingButton.swift; sourceTree = "<group>"; };
 		6969ACAD1F4E9A56000869B3 /* DeleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
@@ -143,7 +155,6 @@
 		4388F4D01F45692C00A985AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4388F4D71F456BE800A985AF /* Shapes.swift */,
 				4388F4D91F456C2500A985AF /* ShapePath.swift */,
 				4388A44B1F498B0C00B4654E /* Colors.swift */,
 			);
@@ -185,6 +196,13 @@
 				6969ACA91F4E93F5000869B3 /* SettingButton.swift */,
 				6969ACAB1F4E96E7000869B3 /* SavingButton.swift */,
 				6969ACAD1F4E9A56000869B3 /* DeleteButton.swift */,
+				43A25D0E1F52FD3200E25558 /* EraserButton.swift */,
+				43A25D101F5305B900E25558 /* FreeStyleButton.swift */,
+				43A25D121F53063700E25558 /* LineButton.swift */,
+				43A25D141F5306CC00E25558 /* RectangleButton.swift */,
+				43A25D161F53073E00E25558 /* TriangleButton.swift */,
+				43A25D181F53077500E25558 /* ParallelogramButton.swift */,
+				43A25D1A1F5307CA00E25558 /* OvalButton.swift */,
 			);
 			name = Button;
 			sourceTree = "<group>";
@@ -323,16 +341,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43A25D0F1F52FD3200E25558 /* EraserButton.swift in Sources */,
 				6969ACAA1F4E93F5000869B3 /* SettingButton.swift in Sources */,
+				43A25D191F53077500E25558 /* ParallelogramButton.swift in Sources */,
 				6969ACAC1F4E96E7000869B3 /* SavingButton.swift in Sources */,
+				43A25D131F53063700E25558 /* LineButton.swift in Sources */,
 				4388F4DA1F456C2500A985AF /* ShapePath.swift in Sources */,
+				43A25D171F53073E00E25558 /* TriangleButton.swift in Sources */,
 				4375E18B1F4C119D0053A453 /* Brush.swift in Sources */,
 				6969ACAE1F4E9A56000869B3 /* DeleteButton.swift in Sources */,
+				43A25D1B1F5307CA00E25558 /* OvalButton.swift in Sources */,
 				4388F4A51F45691F00A985AF /* ViewController.swift in Sources */,
 				4388A44C1F498B0C00B4654E /* Colors.swift in Sources */,
 				4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */,
-				4388F4D81F456BE800A985AF /* Shapes.swift in Sources */,
+				43A25D111F5305B900E25558 /* FreeStyleButton.swift in Sources */,
 				4366F5061F48569A00129A61 /* SettingsViewController.swift in Sources */,
+				43A25D151F5306CC00E25558 /* RectangleButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

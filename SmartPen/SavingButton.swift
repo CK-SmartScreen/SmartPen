@@ -13,11 +13,6 @@ class SavingButton: UIButton {
     {
         super.init(coder: aDecoder)
         
-        self.layer.borderWidth = 0
-        self.backgroundColor = UIColor.white
-        self.layer.borderColor = UIColor(red:0, green:0 , blue:255/255, alpha:0.3).cgColor
-        self.layer.cornerRadius = 5
-        
         if let image = UIImage(named: "cicon_saving_normal")
         {
             self.setImage(image, for: .normal)
