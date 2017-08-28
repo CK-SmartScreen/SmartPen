@@ -43,10 +43,10 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         brushSlider.value = Float(lineWidth)
-        brushLabel.text = "Line or Eraser Size: " + String(format: "%.1f", lineWidth)
+        brushLabel.text = String(format: "%.1f", lineWidth)
 
         opacitySlider.value = Float(opacity)
-        opacityLabel.text = "Opacity:" + String(format: "%.1f", opacity)
+        opacityLabel.text = String(format: "%.1f", opacity)
 
         sliderRed.value = Float(redColorValue * 255)
         redLabel.text = String(format: "%d", Int(sliderRed.value)) as String
@@ -81,14 +81,14 @@ class SettingsViewController: UIViewController {
     
     @IBAction func brushSize(_ sender: Any) {
         lineWidth = CGFloat(brushSlider.value)
-        brushLabel.text = "Line Width: " + String(format: "%.1f", lineWidth)
+        brushLabel.text = String(format: "%.1f", lineWidth)
 
         drawPreview()
     }
 
     @IBAction func opacity(_ sender: Any) {
         opacity = CGFloat(opacitySlider.value)
-        opacityLabel.text = "Opacity:" + String(format: "%.1f", opacity)
+        opacityLabel.text = String(format: "%.1f", opacity)
 
         drawPreview()
     }

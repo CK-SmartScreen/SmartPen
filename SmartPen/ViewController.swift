@@ -33,8 +33,7 @@ class ViewController: UIViewController {
     var shapeButtonArray: [UIButton] = []
     var colorButtonArray: [UIButton] = []
 
-    var selectedShapeButton: UIButton?
-    var selectedColorButton: UIButton?
+
     var startPoint: CGPoint = CGPoint.zero
     var endPoint: CGPoint = CGPoint.zero
     var customPath : UIBezierPath?
@@ -48,12 +47,38 @@ class ViewController: UIViewController {
     // Create a new Brush
     let currentBrush = Brush()
 
+    var selectedShapeTag: Int = 0 {
+        willSet(newTag) {
+            shapeButtonArray[newTag].isSelected = true
+        }
+        didSet(oldTag) {
+            shapeButtonArray[oldTag].isSelected = false
+        }
+    }
+
+
+    var selectedColorTag: Int = 0 {
+        willSet(newTag) {
+            if newTag != -1{
+            colorButtonArray[newTag].backgroundColor = buttonBackgroundColor
+            }
+        }
+        didSet(oldTag) {
+            if selectedColorTag != oldTag {
+                colorButtonArray[oldTag].backgroundColor = UIColor.white
+            }
+        }
+    }
+
+
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         shapeButtonArray = [freestyleButton, lineButton, ovalButton, rectButton, triangleButton, parallelogramButton, eraser]
         colorButtonArray = [redButton, yellowButton, greenButton, blueButton, purpleButton]
-        freestyleButton.isSelected = true
-        selectedColorButton = redButton
+
+       selectedColorTag = 0
 
     }
 
@@ -76,9 +101,7 @@ class ViewController: UIViewController {
 
     @IBAction func shapeDidSelect(_ sender: UIButton) {
 
-        selectedShapeButton?.isSelected = false
-        selectedShapeButton = shapeButtonArray[sender.tag]
-        selectedShapeButton?.isSelected = true
+        selectedShapeTag = sender.tag
 
         if sender.tag == 6 {
             ifUsingEaser = true
@@ -91,12 +114,14 @@ class ViewController: UIViewController {
 
     @IBAction func colorDidSelect(_ sender: UIButton) {
 
-        selectedColorButton?.backgroundColor = UIColor.white
-        selectedColorButton = colorButtonArray[sender.tag]
-        selectedColorButton?.backgroundColor = buttonBackgroundColor
+//        selectedColorButton?.backgroundColor = UIColor.white
+//        selectedColorButton = colorButtonArray[sender.tag]
+//        selectedColorButton?.backgroundColor = buttonBackgroundColor
+        selectedColorTag = sender.tag
 
-        let currentColor = selectedColorButton?.currentTitleColor
-        var colorComponet = currentColor?.cgColor.components
+        let currentColor = colorButtonArray[selectedColorTag].currentTitleColor
+
+        var colorComponet = currentColor.cgColor.components
         currentBrush.red = colorComponet![0]
         currentBrush.green = colorComponet![1]
         currentBrush.blue = colorComponet![2]
@@ -166,7 +191,7 @@ extension ViewController: SettingsViewControllerDelegate {
             self.currentBrush.blue = settingsViewController.blueColorValue
 
             // remove highlight from color button
-            selectedColorButton?.backgroundColor = UIColor.white
+            colorButtonArray[selectedColorTag].backgroundColor = UIColor.white
         }
     }
 }
