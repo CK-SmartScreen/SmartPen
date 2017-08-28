@@ -52,7 +52,9 @@ class ViewController: UIViewController {
             shapeButtonArray[newTag].isSelected = true
         }
         didSet(oldTag) {
-            shapeButtonArray[oldTag].isSelected = false
+            if selectedShapeTag != oldTag {
+                shapeButtonArray[oldTag].isSelected = false
+            }
         }
     }
 
@@ -71,14 +73,13 @@ class ViewController: UIViewController {
     }
 
 
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         shapeButtonArray = [freestyleButton, lineButton, ovalButton, rectButton, triangleButton, parallelogramButton, eraser]
         colorButtonArray = [redButton, yellowButton, greenButton, blueButton, purpleButton]
 
-       selectedColorTag = 0
+        selectedColorTag = 0
+        selectedShapeTag = 0
 
     }
 
@@ -114,9 +115,6 @@ class ViewController: UIViewController {
 
     @IBAction func colorDidSelect(_ sender: UIButton) {
 
-//        selectedColorButton?.backgroundColor = UIColor.white
-//        selectedColorButton = colorButtonArray[sender.tag]
-//        selectedColorButton?.backgroundColor = buttonBackgroundColor
         selectedColorTag = sender.tag
 
         let currentColor = colorButtonArray[selectedColorTag].currentTitleColor
@@ -139,8 +137,19 @@ class ViewController: UIViewController {
         let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
 
-        let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
-        present(activity, animated: true, completion: nil)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+
+            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+            let alertController = UIAlertController(title: "Image Saved", message: "You can see your artwork in Photo Library!", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "Done", style: .default) { (UIAlertAction) in
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+
+        } else {
+            let activity = UIActivityViewController(activityItems: [image!], applicationActivities: nil)
+            present(activity, animated: true, completion: nil)
+        }
     }
 
 
