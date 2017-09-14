@@ -170,6 +170,7 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         let settingsViewController = segue.destination as! SettingsViewController
+        // regesteration delegate
         settingsViewController.delegate = self
         settingsViewController.redColorValue = currentBrush.red
         settingsViewController.greenColorValue = currentBrush.green
