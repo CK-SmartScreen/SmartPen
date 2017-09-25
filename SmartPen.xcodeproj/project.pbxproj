@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		430E0D5B1F7860730049356D /* SmartPen.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 430E0D591F7860730049356D /* SmartPen.xcdatamodeld */; };
 		431BF7121F770BE2001AF184 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431BF7111F770BE2001AF184 /* RadioButton.swift */; };
 		4366F5061F48569A00129A61 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4366F5051F48569A00129A61 /* SettingsViewController.swift */; };
 		4375E18B1F4C119D0053A453 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375E18A1F4C119D0053A453 /* Brush.swift */; };
@@ -51,6 +52,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		430E0D5A1F7860730049356D /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		430E0D651F7862DB0049356D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		431BF7111F770BE2001AF184 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		4366F5051F48569A00129A61 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4375E18A1F4C119D0053A453 /* Brush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brush.swift; sourceTree = "<group>"; };
@@ -108,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		430E0D641F7862DB0049356D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				430E0D651F7862DB0049356D /* CoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4388F4961F45691F00A985AF = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +126,7 @@
 				4388F4B61F45691F00A985AF /* SmartPenTests */,
 				4388F4C11F45691F00A985AF /* SmartPenUITests */,
 				4388F4A01F45691F00A985AF /* Products */,
+				430E0D641F7862DB0049356D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +173,7 @@
 		4388F4D01F45692C00A985AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				430E0D591F7860730049356D /* SmartPen.xcdatamodeld */,
 				4388F4D91F456C2500A985AF /* ShapePath.swift */,
 				4388A44B1F498B0C00B4654E /* Colors.swift */,
 				43E4D5111F77B243004B61C4 /* AgeGroupDataModel.swift */,
@@ -299,7 +312,7 @@
 				};
 			};
 			buildConfigurationList = 4388F49A1F45691F00A985AF /* Build configuration list for PBXProject "SmartPen" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -357,6 +370,7 @@
 				43A25D191F53077500E25558 /* ParallelogramButton.swift in Sources */,
 				6969ACAC1F4E96E7000869B3 /* SavingButton.swift in Sources */,
 				43A25D131F53063700E25558 /* LineButton.swift in Sources */,
+				430E0D5B1F7860730049356D /* SmartPen.xcdatamodeld in Sources */,
 				4388F4DA1F456C2500A985AF /* ShapePath.swift in Sources */,
 				43A25D171F53073E00E25558 /* TriangleButton.swift in Sources */,
 				4375E18B1F4C119D0053A453 /* Brush.swift in Sources */,
@@ -638,6 +652,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		430E0D591F7860730049356D /* SmartPen.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				430E0D5A1F7860730049356D /* Model.xcdatamodel */,
+			);
+			currentVersion = 430E0D5A1F7860730049356D /* Model.xcdatamodel */;
+			path = SmartPen.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4388F4971F45691F00A985AF /* Project object */;
 }

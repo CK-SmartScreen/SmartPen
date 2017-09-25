@@ -29,7 +29,7 @@ protocol SettingsViewControllerDelegate: class {
 
 
     @IBAction func dismissView(_ sender: Any) {
- 
+
         self.dismiss(animated: true, completion: nil)
         self.delegate?.settingsViewControllerFinished(self)
     }
@@ -69,4 +69,20 @@ extension ViewController: SettingsViewControllerDelegate {
 ```
 
 
-## 
+## What I learned
+- How to use SQLiteBrowser to view your CoreData
+1. Download and install from http://sqlitebrowser.org
+
+2. Insert follow code to show db file e.g. "AppName".sqlite
+```
+let storeUrl = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url
+print(storeUrl!)
+```
+file:///Users/xxx/Library/Developer/CoreSimulator/Devices/95E79F65-8DC5-4200-83C7-CE443685D25E/data/Containers/Data/Application/35C1939D-DD2F-4B4E-AF70-6489047977A2/Library/Application%20Support/SmartPen.sqlite
+
+3. Open Termial and locate to that file
+`cd /Users/xxx/Library/Developer/CoreSimulator/Devices/95E79F65-8DC5-4200-83C7-CE443685D25E/data/Containers/Data/Application/35C1939D-DD2F-4B4E-AF70-6489047977A2/Library/Application%20Support`
+
+4. run `open .` open that folder
+
+5. copy that three data file to Desktop then in sqlite brower click open DataBase.
