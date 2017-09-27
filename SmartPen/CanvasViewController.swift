@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CanvasViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var redButton: UIButton!
@@ -166,22 +166,26 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
 
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        let settingsViewController = segue.destination as! SettingsViewController
-        // regesteration delegate
-        settingsViewController.delegate = self
-        settingsViewController.redColorValue = currentBrush.red
-        settingsViewController.greenColorValue = currentBrush.green
-        settingsViewController.blueColorValue = currentBrush.blue
-        settingsViewController.opacity = currentBrush.opacty
-        settingsViewController.lineWidth = currentBrush.size
+        if(segue.identifier == "settingView"){
+            let settingsViewController = segue.destination as! SettingsViewController
+            // regesteration delegate
+            settingsViewController.delegate = self
+            settingsViewController.redColorValue = currentBrush.red
+            settingsViewController.greenColorValue = currentBrush.green
+            settingsViewController.blueColorValue = currentBrush.blue
+            settingsViewController.opacity = currentBrush.opacty
+            settingsViewController.lineWidth = currentBrush.size
+        }
+        else if (segue.identifier == "loginView"){
+            print("Go to Login Page")
+        }
     }
 }
 
 
-extension ViewController: SettingsViewControllerDelegate {
+extension CanvasViewController: SettingsViewControllerDelegate {
 
     func settingsViewControllerFinished(_ settingsViewController: SettingsViewController) {
 

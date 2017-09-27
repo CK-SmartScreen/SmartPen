@@ -24,11 +24,15 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var occupationTxt: UITextField!
     @IBOutlet weak var ageGroupTxt: UITextField!
+    let ageArray = ["10-18","19-29","30-45","45-55","56 abve"]
+
     @IBOutlet weak var genderSegment: UISegmentedControl!
     var gender = ""
-
-    let ageArray = ["10-18","19-29","30-45","45-55","56 abve"]
     let occupationArray = ["Accounting","Banking","Construction","Education","Farming","Healthcare","Legal","Mining","Sales","Science","Sport"]
+
+    @IBOutlet weak var goToLogin: UILabel!
+    
+
 
     var people: [NSManagedObject] = []
     let occupationPicker = UIPickerView()
@@ -76,6 +80,8 @@ class RegisterViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
 
+
+        // [Test:] test the number of registered user and print out the database location
         print("[Log]\n People's Count:\(people.count) \n")
         let storeUrl = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url
         print(storeUrl!)
@@ -87,18 +93,44 @@ class RegisterViewController: UIViewController {
     @IBAction func isValidName(_ sender: UITextField) {
         if(!isValidInput(Input: usernameTxt.text as String!, RegEx: userNameRegEx)){
             invalidNameLabel.text = "At least six characters"
+            return
+        }
+
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
+            return
+        }
+        let managedContext = appDelegate.persistentContainer.viewContext
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+        let predicate = NSPredicate(format: "username == %@", usernameTxt.text as String!)
+        request.predicate = predicate
+        request.fetchLimit = 1
+        do{
+            let count = try managedContext.count(for: request)
+            if(count == 0){
+                // not Matching user
+                return
+            }
+            else{
+                //at least one matching object
+                invalidNameLabel.text = "username is in used"
+            }
+        }
+        catch let error as NSError {
+            print("Could not fetch \(error), \(error)")
         }
     }
 
     @IBAction func startInputPassword(_ sender: UITextField) {
         invalidPasswordLabel.text = ""
         invalidRepeatPasswordLabel.text = ""
+        repeatpasswordTxt.text = ""
     }
 
-    @IBAction func isValidPassword(_ sender: UITextField) {
-        if( !isValidInput(Input: passwordTxt.text as String!, RegEx: passwordRegEx)){
-            invalidPasswordLabel.text = "password veriﬁcation fails"
+    @IBAction func passwordEntered(_ sender: UITextField) {
+        if(isValidInput(Input: passwordTxt.text as String!, RegEx: passwordRegEx) || passwordTxt.text == ""){
+            return
         }
+        invalidPasswordLabel.text = "veriﬁcation failed"
     }
 
     @IBAction func startRepeatPassword(_ sender: UITextField) {
@@ -108,19 +140,22 @@ class RegisterViewController: UIViewController {
 
     @IBAction func repeatPasswordEntered(_ sender: UITextField) {
         if(sender.text != passwordTxt.text){
-            invalidRepeatPasswordLabel.text = "Passwords don't match."
+            invalidRepeatPasswordLabel.text = "passwords don't match"
         }
     }
 
-
     @IBAction func loginPressed(_ sender: Any) {
-        if (isValidInput(Input: usernameTxt.text as String!, RegEx: userNameRegEx) && isValidInput(Input: passwordTxt.text as String!, RegEx: passwordRegEx)){
+        if (isValidInput(Input: usernameTxt.text as String!, RegEx: userNameRegEx) &&
+            isValidInput(Input: passwordTxt.text as String!, RegEx: passwordRegEx) &&
+            occupationTxt.text != "" &&
+            ageGroupTxt.text != ""
+            ){
             saveUser()
+            self.performSegue(withIdentifier: "canvasView", sender: self)
         } else {
             print("Something wrong!")
         }
     }
-
 
     func isValidInput(Input: String, RegEx: String) -> Bool {
         let Test = NSPredicate(format:"SELF MATCHES %@", RegEx)
@@ -138,7 +173,7 @@ class RegisterViewController: UIViewController {
 
         let user = NSManagedObject(entity: entity, insertInto: managedContext)
 
-        user.setValue(usernameTxt.text as String!, forKeyPath: "username")
+        user.setValue(usernameTxt.text as String!, forKey: "username")
         user.setValue(passwordTxt.text as String!, forKey: "password")
         user.setValue(occupationTxt.text as String!, forKey: "occupation")
         user.setValue(ageGroupTxt.text as String!, forKey: "agegroup")

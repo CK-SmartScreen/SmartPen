@@ -13,7 +13,7 @@
 		4375E18B1F4C119D0053A453 /* Brush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4375E18A1F4C119D0053A453 /* Brush.swift */; };
 		4388A44C1F498B0C00B4654E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388A44B1F498B0C00B4654E /* Colors.swift */; };
 		4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4A21F45691F00A985AF /* AppDelegate.swift */; };
-		4388F4A51F45691F00A985AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4A41F45691F00A985AF /* ViewController.swift */; };
+		4388F4A51F45691F00A985AF /* CanvasViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4388F4A41F45691F00A985AF /* CanvasViewController.swift */; };
 		4388F4A81F45691F00A985AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4A61F45691F00A985AF /* Main.storyboard */; };
 		4388F4AA1F45691F00A985AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4A91F45691F00A985AF /* Assets.xcassets */; };
 		4388F4AD1F45691F00A985AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4388F4AB1F45691F00A985AF /* LaunchScreen.storyboard */; };
@@ -29,6 +29,8 @@
 		43A25D1B1F5307CA00E25558 /* OvalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43A25D1A1F5307CA00E25558 /* OvalButton.swift */; };
 		43E4D5121F77B243004B61C4 /* AgeGroupDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43E4D5111F77B243004B61C4 /* AgeGroupDataModel.swift */; };
 		43F74F0C1F7796590038B7EF /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43F74F0B1F7796590038B7EF /* RegisterViewController.swift */; };
+		43FF23DF1F7B14D60066B090 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF23DE1F7B14D60066B090 /* LoginViewController.swift */; };
+		43FF23E11F7B51C10066B090 /* CoreDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43FF23E01F7B51C10066B090 /* CoreDataTools.swift */; };
 		6969ACAA1F4E93F5000869B3 /* SettingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6969ACA91F4E93F5000869B3 /* SettingButton.swift */; };
 		6969ACAC1F4E96E7000869B3 /* SavingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6969ACAB1F4E96E7000869B3 /* SavingButton.swift */; };
 		6969ACAE1F4E9A56000869B3 /* DeleteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6969ACAD1F4E9A56000869B3 /* DeleteButton.swift */; };
@@ -60,7 +62,7 @@
 		4388A44B1F498B0C00B4654E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4388F49F1F45691F00A985AF /* SmartPen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartPen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4388F4A21F45691F00A985AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4388F4A41F45691F00A985AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4388F4A41F45691F00A985AF /* CanvasViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasViewController.swift; sourceTree = "<group>"; };
 		4388F4A71F45691F00A985AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4388F4A91F45691F00A985AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4388F4AC1F45691F00A985AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -81,6 +83,8 @@
 		43A25D1A1F5307CA00E25558 /* OvalButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OvalButton.swift; sourceTree = "<group>"; };
 		43E4D5111F77B243004B61C4 /* AgeGroupDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeGroupDataModel.swift; sourceTree = "<group>"; };
 		43F74F0B1F7796590038B7EF /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		43FF23DE1F7B14D60066B090 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		43FF23E01F7B51C10066B090 /* CoreDataTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTools.swift; sourceTree = "<group>"; };
 		6969ACA91F4E93F5000869B3 /* SettingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingButton.swift; sourceTree = "<group>"; };
 		6969ACAB1F4E96E7000869B3 /* SavingButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SavingButton.swift; sourceTree = "<group>"; };
 		6969ACAD1F4E9A56000869B3 /* DeleteButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteButton.swift; sourceTree = "<group>"; };
@@ -173,6 +177,7 @@
 		4388F4D01F45692C00A985AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				43FF23E01F7B51C10066B090 /* CoreDataTools.swift */,
 				430E0D591F7860730049356D /* SmartPen.xcdatamodeld */,
 				4388F4D91F456C2500A985AF /* ShapePath.swift */,
 				4388A44B1F498B0C00B4654E /* Colors.swift */,
@@ -184,10 +189,11 @@
 		4388F4D11F45693A00A985AF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				4388F4A41F45691F00A985AF /* ViewController.swift */,
+				4388F4A41F45691F00A985AF /* CanvasViewController.swift */,
 				4366F5051F48569A00129A61 /* SettingsViewController.swift */,
 				4375E18A1F4C119D0053A453 /* Brush.swift */,
 				43F74F0B1F7796590038B7EF /* RegisterViewController.swift */,
+				43FF23DE1F7B14D60066B090 /* LoginViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -363,11 +369,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FF23DF1F7B14D60066B090 /* LoginViewController.swift in Sources */,
 				431BF7121F770BE2001AF184 /* RadioButton.swift in Sources */,
 				43A25D0F1F52FD3200E25558 /* EraserButton.swift in Sources */,
 				43E4D5121F77B243004B61C4 /* AgeGroupDataModel.swift in Sources */,
 				6969ACAA1F4E93F5000869B3 /* SettingButton.swift in Sources */,
 				43A25D191F53077500E25558 /* ParallelogramButton.swift in Sources */,
+				43FF23E11F7B51C10066B090 /* CoreDataTools.swift in Sources */,
 				6969ACAC1F4E96E7000869B3 /* SavingButton.swift in Sources */,
 				43A25D131F53063700E25558 /* LineButton.swift in Sources */,
 				430E0D5B1F7860730049356D /* SmartPen.xcdatamodeld in Sources */,
@@ -377,7 +385,7 @@
 				43F74F0C1F7796590038B7EF /* RegisterViewController.swift in Sources */,
 				6969ACAE1F4E9A56000869B3 /* DeleteButton.swift in Sources */,
 				43A25D1B1F5307CA00E25558 /* OvalButton.swift in Sources */,
-				4388F4A51F45691F00A985AF /* ViewController.swift in Sources */,
+				4388F4A51F45691F00A985AF /* CanvasViewController.swift in Sources */,
 				4388A44C1F498B0C00B4654E /* Colors.swift in Sources */,
 				4388F4A31F45691F00A985AF /* AppDelegate.swift in Sources */,
 				43A25D111F5305B900E25558 /* FreeStyleButton.swift in Sources */,
