@@ -27,13 +27,14 @@ class CanvasViewController: UIViewController {
     @IBOutlet weak var rectButton: RectangleButton!
     @IBOutlet weak var triangleButton: TriangleButton!
     @IBOutlet weak var parallelogramButton: ParallelogramButton!
+
+    @IBOutlet weak var loginButton: UIButton!
+
     var buttonBackgroundColor: UIColor {
         return UIColor(red: 63/255, green: 125/255, blue: 182/255, alpha: 1)
     }
     var shapeButtonArray: [UIButton] = []
     var colorButtonArray: [UIButton] = []
-
-
     var startPoint: CGPoint = CGPoint.zero
     var endPoint: CGPoint = CGPoint.zero
     var customPath : UIBezierPath?
@@ -43,6 +44,7 @@ class CanvasViewController: UIViewController {
     var greenColorValue: CGFloat = 0.0
     var blueColorValue: CGFloat = 0.0
     var ifUsingEaser = false
+
 
     // Create a new Brush
     let currentBrush = Brush()
@@ -154,7 +156,6 @@ class CanvasViewController: UIViewController {
 
 
     @IBAction func deleteView(_ sender: Any) {
-
         let alertController = UIAlertController(title: "Delete", message: "Permanently delete your artwork, is this what you intented to do?", preferredStyle: UIAlertControllerStyle.alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "Delete", style: .cancel) { (UIAlertAction) in
@@ -170,7 +171,7 @@ class CanvasViewController: UIViewController {
 
         if(segue.identifier == "settingView"){
             let settingsViewController = segue.destination as! SettingsViewController
-            // regesteration delegate
+            // register delegate
             settingsViewController.delegate = self
             settingsViewController.redColorValue = currentBrush.red
             settingsViewController.greenColorValue = currentBrush.green
@@ -179,7 +180,10 @@ class CanvasViewController: UIViewController {
             settingsViewController.lineWidth = currentBrush.size
         }
         else if (segue.identifier == "loginView"){
-            print("Go to Login Page")
+            let loginViewController = segue.destination as! LoginViewController
+            // register delegate
+            loginViewController.delegate = self
+//            print("Go to Login Page")
         }
     }
 }
@@ -198,7 +202,6 @@ extension CanvasViewController: SettingsViewControllerDelegate {
             self.currentBrush.size = settingsViewController.lineWidth
 
         } else {
-
             // Get the new color from Setting View
             self.currentBrush.red = settingsViewController.redColorValue
             self.currentBrush.green = settingsViewController.greenColorValue
@@ -207,5 +210,12 @@ extension CanvasViewController: SettingsViewControllerDelegate {
             // remove highlight from color button
             colorButtonArray[selectedColorTag].backgroundColor = UIColor.white
         }
+    }
+}
+
+extension CanvasViewController: setUserNameDelegate {
+    func setUserName(_ userName: String) {
+        loginButton.setTitle(userName, for: .normal)
+        print("I got the username, it's:\(userName)")
     }
 }

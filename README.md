@@ -74,6 +74,7 @@ extension ViewController: SettingsViewControllerDelegate {
 1. Download and install from http://sqlitebrowser.org
 
 2. Insert follow code to show db file e.g. "AppName".sqlite
+
 ```
 let storeUrl = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url
 print(storeUrl!)

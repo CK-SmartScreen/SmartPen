@@ -32,7 +32,7 @@ class RegisterViewController: UIViewController {
 
     @IBOutlet weak var goToLogin: UILabel!
     
-
+    let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     var people: [NSManagedObject] = []
     let occupationPicker = UIPickerView()
@@ -79,7 +79,6 @@ class RegisterViewController: UIViewController {
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
-
 
         // [Test:] test the number of registered user and print out the database location
         print("[Log]\n People's Count:\(people.count) \n")
@@ -144,7 +143,7 @@ class RegisterViewController: UIViewController {
         }
     }
 
-    @IBAction func loginPressed(_ sender: Any) {
+    @IBAction func registerButtonTapped(_ sender: Any) {
         if (isValidInput(Input: usernameTxt.text as String!, RegEx: userNameRegEx) &&
             isValidInput(Input: passwordTxt.text as String!, RegEx: passwordRegEx) &&
             occupationTxt.text != "" &&
@@ -163,21 +162,14 @@ class RegisterViewController: UIViewController {
     }
 
     func saveUser() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
 
-        let managedContext = appDelegate.persistentContainer.viewContext
-
-        let entity = NSEntityDescription.entity(forEntityName: "User", in: managedContext)!
-
-        let user = NSManagedObject(entity: entity, insertInto: managedContext)
-
-        user.setValue(usernameTxt.text as String!, forKey: "username")
-        user.setValue(passwordTxt.text as String!, forKey: "password")
-        user.setValue(occupationTxt.text as String!, forKey: "occupation")
-        user.setValue(ageGroupTxt.text as String!, forKey: "agegroup")
-        user.setValue(gender, forKey: "gender")
+        let entityDescription = NSEntityDescription.entity(forEntityName: "User", in: managedContext)
+        let item = User(entity: entityDescription!, insertInto: managedContext)
+        item.username = usernameTxt.text
+        item.password = passwordTxt.text
+        item.occupation = occupationTxt.text
+        item.agegroup = ageGroupTxt.text
+        item.gender = gender
 
         do {
             try managedContext.save()
@@ -192,6 +184,9 @@ class RegisterViewController: UIViewController {
     }
 
 
+
+
+    
     func createAgeGroupPickerView(){
         // toolbar
         let toolbar = UIToolbar()
@@ -227,7 +222,5 @@ class RegisterViewController: UIViewController {
         occupationTxt.text = "\(occupationDataModel.selectedRow)"
         self.view.endEditing(true)
     }
-
-
 
 }
