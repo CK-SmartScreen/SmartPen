@@ -43,7 +43,7 @@ class CanvasViewController: UIViewController {
     var greenColorValue: CGFloat = 0.0
     var blueColorValue: CGFloat = 0.0
     var ifUsingEaser = false
-
+    var currentUser = ""
 
     // Create a new Brush
     let currentBrush = Brush()
@@ -158,6 +158,8 @@ class CanvasViewController: UIViewController {
         let alertController = UIAlertController(title: "Delete", message: "Permanently delete your artwork, is this what you intented to do?", preferredStyle: UIAlertControllerStyle.alert)
         let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
         let okAction = UIAlertAction(title: "Delete", style: .cancel) { (UIAlertAction) in
+
+            // Delete all artwork
             self.imageView.layer.sublayers = nil
         }
 
@@ -179,9 +181,23 @@ class CanvasViewController: UIViewController {
             settingsViewController.lineWidth = currentBrush.size
         }
         else if (segue.identifier == "loginView"){
-            let loginViewController = segue.destination as! LoginViewController
-            // register delegate
-            loginViewController.delegate = self
+            if(currentUser == ""){
+                let loginViewController = segue.destination as! LoginViewController
+                // register delegate
+                loginViewController.delegate = self
+            } else {
+                // double confirm dialog
+                let alertController = UIAlertController(title: "Hi \(currentUser)", message: "Thank you of using Smart Pen, Do you really want to logout?", preferredStyle: UIAlertControllerStyle.alert)
+                let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                let okAction = UIAlertAction(title: "Logout", style: .cancel) { (UIAlertAction) in
+                    // Delete all artwork
+                    self.loginButton.isSelected = false
+                    self.currentUser = ""
+                }
+                alertController.addAction(cancelAction)
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
         }
     }
 }
@@ -213,7 +229,7 @@ extension CanvasViewController: SettingsViewControllerDelegate {
 
 extension CanvasViewController: setUserNameDelegate {
     func setUserName(_ userName: String) {
-//        let loginMsg = "wellcome \(userName)"
+        currentUser = userName
         loginButton.isSelected = true
     }
 }

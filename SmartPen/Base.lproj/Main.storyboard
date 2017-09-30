@@ -31,15 +31,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="49P-y8-hza">
                                 <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygz-KB-tDl" customClass="DeleteButton" customModule="SmartPen" customModuleProvider="target">
-                                <rect key="frame" x="539" y="8" width="21" height="22"/>
-                                <state key="normal" image="icon_delete_normal"/>
-                                <connections>
-                                    <action selector="deleteView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pqz-L9-tPW"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="QnB-Fz-T9t">
-                                <rect key="frame" x="313" y="286" width="243" height="26"/>
+                                <rect key="frame" x="282" y="286" width="274" height="26"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFt-JZ-R2v" customClass="FreeStyleButton" customModule="SmartPen" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
@@ -119,6 +112,13 @@
                                         <state key="normal" image="icon_saving_normal"/>
                                         <connections>
                                             <action selector="saveArtwork:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y53-XL-yya"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ygz-KB-tDl" customClass="DeleteButton" customModule="SmartPen" customModuleProvider="target">
+                                        <rect key="frame" x="248" y="0.0" width="26" height="26"/>
+                                        <state key="normal" image="icon_delete_normal"/>
+                                        <connections>
+                                            <action selector="deleteView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Pqz-L9-tPW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -202,7 +202,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdZ-FS-Rlm" customClass="LoginButton" customModule="SmartPen" customModuleProvider="target">
-                                <rect key="frame" x="274" y="8" width="21" height="21"/>
+                                <rect key="frame" x="539" y="8" width="21" height="21"/>
                                 <state key="normal" backgroundImage="icon_account_normal"/>
                                 <connections>
                                     <segue destination="PiU-PZ-K0I" kind="presentation" identifier="loginView" id="wYC-EI-AJg"/>
@@ -214,11 +214,9 @@
                         <constraints>
                             <constraint firstItem="49P-y8-hza" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="3Cm-tt-VAv"/>
                             <constraint firstItem="dST-RO-Ade" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="A8r-Tf-KKB"/>
-                            <constraint firstItem="DdZ-FS-Rlm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ab2-RS-Fxq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="49P-y8-hza" secondAttribute="bottom" id="Adt-KM-Jtw"/>
                             <constraint firstItem="pHU-Vn-lq0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="8" id="JGl-2I-ZcJ"/>
-                            <constraint firstAttribute="trailing" secondItem="Ygz-KB-tDl" secondAttribute="trailing" constant="8" id="OGf-dt-Nbz"/>
-                            <constraint firstItem="Ygz-KB-tDl" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="Q0R-xj-2J7"/>
+                            <constraint firstAttribute="trailing" secondItem="DdZ-FS-Rlm" secondAttribute="trailing" constant="8" id="UDc-XR-nZ8"/>
                             <constraint firstItem="DdZ-FS-Rlm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="ULB-lY-eSD"/>
                             <constraint firstItem="pHU-Vn-lq0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="XvL-0f-8Zh"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QnB-Fz-T9t" secondAttribute="bottom" constant="8" id="ZX8-1i-g1F"/>
