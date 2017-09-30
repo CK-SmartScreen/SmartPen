@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController{
 
     @IBOutlet weak var usernameTxt: UITextField!
     let userNameRegEx = "\\A\\w{6,18}\\z"
@@ -64,6 +64,7 @@ class RegisterViewController: UIViewController {
         createOccupationPickerView()
     }
 
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -80,20 +81,25 @@ class RegisterViewController: UIViewController {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
 
-        // [Test:] test the number of registered user and print out the database location
-        print("[Log]\n People's Count:\(people.count) \n")
-        let storeUrl = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url
-        print(storeUrl!)
+        // [Testing] test the number of registered user and print out the database location
+        // print("[Log]\n People's Count:\(people.count) \n")
+        // let storeUrl = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url
+        // print(storeUrl!)
     }
 
-    @IBAction func startInputName(_ sender: UITextField) {
+    @IBAction func textFieldTouchDown(_ sender: UITextField) {
         invalidNameLabel.text = ""
+        invalidPasswordLabel.text = ""
+        invalidRepeatPasswordLabel.text = ""
+        repeatpasswordTxt.text = ""
     }
+
     @IBAction func isValidName(_ sender: UITextField) {
         if(!isValidInput(Input: usernameTxt.text as String!, RegEx: userNameRegEx)){
             invalidNameLabel.text = "At least six characters"
             return
         }
+
 
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return
@@ -119,11 +125,6 @@ class RegisterViewController: UIViewController {
         }
     }
 
-    @IBAction func startInputPassword(_ sender: UITextField) {
-        invalidPasswordLabel.text = ""
-        invalidRepeatPasswordLabel.text = ""
-        repeatpasswordTxt.text = ""
-    }
 
     @IBAction func passwordEntered(_ sender: UITextField) {
         if(isValidInput(Input: passwordTxt.text as String!, RegEx: passwordRegEx) || passwordTxt.text == ""){
@@ -131,11 +132,6 @@ class RegisterViewController: UIViewController {
         }
         invalidPasswordLabel.text = "veriﬁcation failed"
     }
-
-    @IBAction func startRepeatPassword(_ sender: UITextField) {
-        invalidRepeatPasswordLabel.text = ""
-    }
-
 
     @IBAction func repeatPasswordEntered(_ sender: UITextField) {
         if(sender.text != passwordTxt.text){
@@ -152,7 +148,7 @@ class RegisterViewController: UIViewController {
             saveUser()
             self.performSegue(withIdentifier: "canvasView", sender: self)
         } else {
-            print("Something wrong!")
+            print("Must input all the fields")
         }
     }
 
@@ -180,13 +176,8 @@ class RegisterViewController: UIViewController {
 
     @IBAction func genderSelect(_ sender: UISegmentedControl) {
         gender = genderSegment.titleForSegment(at: sender.selectedSegmentIndex)!
-        print(gender)
     }
 
-
-
-
-    
     func createAgeGroupPickerView(){
         // toolbar
         let toolbar = UIToolbar()
@@ -200,6 +191,7 @@ class RegisterViewController: UIViewController {
         // assigning data picker to text field
         ageGroupTxt.inputView = ageGroupPicker
     }
+
     func ageDonePressed(){
         ageGroupTxt.text = "\(ageDataModel.selectedRow)"
         self.view.endEditing(true)
@@ -218,9 +210,14 @@ class RegisterViewController: UIViewController {
         // assigning data picker to text field
         occupationTxt.inputView = occupationPicker
     }
+
     func occupationDonePressed(){
         occupationTxt.text = "\(occupationDataModel.selectedRow)"
         self.view.endEditing(true)
     }
 
+    @IBAction func backToLoginViewButtonTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
+

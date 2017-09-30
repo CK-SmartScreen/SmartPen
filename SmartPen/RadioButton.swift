@@ -126,8 +126,6 @@ class RadioButton: UIControl {
         self.lineWidth = 1.0
         self.titleLabelInit()
         self.radioInit()
-        
-        print("f")
     }
     
     private func titleLabelInit() {

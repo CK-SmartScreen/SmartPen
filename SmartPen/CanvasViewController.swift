@@ -10,7 +10,7 @@ import UIKit
 
 class CanvasViewController: UIViewController {
 
-    @IBOutlet weak var label: UILabel!
+//    @IBOutlet weak var label: UILabel!
     @IBOutlet weak var redButton: UIButton!
     @IBOutlet weak var yellowButton: UIButton!
     @IBOutlet weak var greenButton: UIButton!
@@ -27,8 +27,7 @@ class CanvasViewController: UIViewController {
     @IBOutlet weak var rectButton: RectangleButton!
     @IBOutlet weak var triangleButton: TriangleButton!
     @IBOutlet weak var parallelogramButton: ParallelogramButton!
-
-    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loginButton: LoginButton!
 
     var buttonBackgroundColor: UIColor {
         return UIColor(red: 63/255, green: 125/255, blue: 182/255, alpha: 1)
@@ -183,7 +182,6 @@ class CanvasViewController: UIViewController {
             let loginViewController = segue.destination as! LoginViewController
             // register delegate
             loginViewController.delegate = self
-//            print("Go to Login Page")
         }
     }
 }
@@ -215,7 +213,7 @@ extension CanvasViewController: SettingsViewControllerDelegate {
 
 extension CanvasViewController: setUserNameDelegate {
     func setUserName(_ userName: String) {
-        loginButton.setTitle(userName, for: .normal)
-        print("I got the username, it's:\(userName)")
+//        let loginMsg = "wellcome \(userName)"
+        loginButton.isSelected = true
     }
 }
