@@ -28,9 +28,47 @@ class SmartPenUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+    func testPalette() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        // Test Palette selection Tool
+        XCUIDevice.shared().orientation = .landscapeLeft
+        
+        let app = XCUIApplication()
+        app.buttons["icon color red"].tap()
+        
+        let iconSettingNormalElement = app.otherElements.containing(.button, identifier:"icon setting normal").element
+        iconSettingNormalElement.swipeDown()
+        app.buttons["icon color yellow"].tap()
+        iconSettingNormalElement.swipeDown()
+        app.buttons["icon color green"].tap()
+        iconSettingNormalElement.swipeLeft()
+        app.buttons["icon color blue"].tap()
+        iconSettingNormalElement.swipeLeft()
+        app.buttons["icon color purple"].tap()
+        iconSettingNormalElement.swipeDown()
     }
     
+    func testShape() {
+        
+        XCUIDevice.shared().orientation = .landscapeLeft
+        
+        let app = XCUIApplication()
+        app.buttons["icon freestyle normal"].tap()
+        
+        let iconSettingNormalElement = app.otherElements.containing(.button, identifier:"icon setting normal").element
+        iconSettingNormalElement.swipeDown()
+        app.buttons["icon line normal"].tap()
+        iconSettingNormalElement.swipeDown()
+        app.buttons["icon oval normal"].tap()
+        iconSettingNormalElement.swipeDown()
+        app.buttons["icon rectangle normal"].tap()
+        iconSettingNormalElement.swipeDown()
+        app.buttons["icon polygon normal"].tap()
+        iconSettingNormalElement.swipeDown()
+        app.buttons["icon eraser normal"].tap()
+        iconSettingNormalElement.swipeRight()
+        
+    }
 }
