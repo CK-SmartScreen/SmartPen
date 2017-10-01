@@ -31,44 +31,105 @@ class SmartPenUITests: XCTestCase {
     func testPalette() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        // Test Palette selection Tool
-        XCUIDevice.shared().orientation = .landscapeLeft
-        
+
         let app = XCUIApplication()
-        app.buttons["icon color red"].tap()
-        
         let iconSettingNormalElement = app.otherElements.containing(.button, identifier:"icon setting normal").element
-        iconSettingNormalElement.swipeDown()
+        iconSettingNormalElement.swipeUp()
         app.buttons["icon color yellow"].tap()
-        iconSettingNormalElement.swipeDown()
+        iconSettingNormalElement.swipeUp()
         app.buttons["icon color green"].tap()
-        iconSettingNormalElement.swipeLeft()
+        iconSettingNormalElement.swipeRight()
         app.buttons["icon color blue"].tap()
-        iconSettingNormalElement.swipeLeft()
+        iconSettingNormalElement.swipeUp()
         app.buttons["icon color purple"].tap()
-        iconSettingNormalElement.swipeDown()
+        iconSettingNormalElement.swipeLeft()
     }
-    
-    func testShape() {
-        
-        XCUIDevice.shared().orientation = .landscapeLeft
-        
+
+    func testShapeTool() {
+
         let app = XCUIApplication()
         app.buttons["icon freestyle normal"].tap()
         
         let iconSettingNormalElement = app.otherElements.containing(.button, identifier:"icon setting normal").element
-        iconSettingNormalElement.swipeDown()
+        iconSettingNormalElement/*@START_MENU_TOKEN@*/.swipeRight()/*[[".swipeUp()",".swipeRight()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         app.buttons["icon line normal"].tap()
-        iconSettingNormalElement.swipeDown()
+        iconSettingNormalElement.swipeUp()
         app.buttons["icon oval normal"].tap()
-        iconSettingNormalElement.swipeDown()
+        iconSettingNormalElement/*@START_MENU_TOKEN@*/.swipeRight()/*[[".swipeUp()",".swipeRight()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         app.buttons["icon rectangle normal"].tap()
-        iconSettingNormalElement.swipeDown()
+        iconSettingNormalElement/*@START_MENU_TOKEN@*/.swipeLeft()/*[[".swipeUp()",".swipeLeft()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        app.buttons["icon triangle normal"].tap()
+        iconSettingNormalElement/*@START_MENU_TOKEN@*/.swipeRight()/*[[".swipeDown()",".swipeRight()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         app.buttons["icon polygon normal"].tap()
+        iconSettingNormalElement/*@START_MENU_TOKEN@*/.swipeRight()/*[[".swipeDown()",".swipeRight()"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+    }
+
+    func testDeleteAll() {
+
+        let app = XCUIApplication()
+        let iconSettingNormalElement = app.otherElements.containing(.button, identifier:"icon setting normal").element
         iconSettingNormalElement.swipeDown()
-        app.buttons["icon eraser normal"].tap()
-        iconSettingNormalElement.swipeRight()
+        app.buttons["icon delete normal"].tap()
+        app.alerts["Delete"].buttons["Delete"].tap()
+    }
+
+    func testRegistration() {
+
+        let app = XCUIApplication()
+        app.buttons["icon account normal"].tap()
+
+        let registerButton = app.buttons["Register"]
+        registerButton.tap()
+
+        let userNameTextField = app.textFields["User Name: "]
+        userNameTextField.tap()
+        userNameTextField.typeText("test77")
+
+        let passwordSecureTextField = app.secureTextFields["Password:"]
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("P@ss0rd")
+
+        let repeatPasswordSecureTextField = app.secureTextFields["Repeat Password:"]
+        repeatPasswordSecureTextField.tap()
+        repeatPasswordSecureTextField.tap()
+        repeatPasswordSecureTextField.typeText("P@ssw0rd")
+        passwordSecureTextField.tap()
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText("P@ssw0rd")
+        repeatPasswordSecureTextField.tap()
+        repeatPasswordSecureTextField.tap()
+        repeatPasswordSecureTextField.typeText("P@ssw0rd")
+
+        let occupationTextField = app.textFields["Occupation:"]
+        occupationTextField.tap()
+        occupationTextField.tap()
+
+        let app2 = app
+        app2/*@START_MENU_TOKEN@*/.pickerWheels["Accounting"].press(forDuration: 1.3);/*[[".pickers.pickerWheels[\"Accounting\"]",".tap()",".press(forDuration: 1.3);",".pickerWheels[\"Accounting\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
+
+        let doneButton = app.toolbars.buttons["Done"]
+        doneButton.tap()
+        app.textFields["Age Group:"].tap()
+        app2/*@START_MENU_TOKEN@*/.pickerWheels["10-18"].press(forDuration: 1.4);/*[[".pickers.pickerWheels[\"10-18\"]",".tap()",".press(forDuration: 1.4);",".pickerWheels[\"10-18\"]"],[[[-1,3,1],[-1,0,1]],[[-1,2],[-1,1]]],[0,0]]@END_MENU_TOKEN@*/
+        doneButton.tap()
+        app2/*@START_MENU_TOKEN@*/.buttons["Female"]/*[[".segmentedControls.buttons[\"Female\"]",".buttons[\"Female\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        registerButton.tap()
+    }
+
+    func testLogin() {
+
+        let app = XCUIApplication()
+        let iconAccountNormalButton = app.buttons["icon account normal"]
+        iconAccountNormalButton.tap()
         
+        let element = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element
+        let textField = element.children(matching: .textField).element
+        textField.tap()
+        textField.tap()
+        textField.typeText("test11")
+        let secureTextField = element.children(matching: .secureTextField).element
+        secureTextField.tap()
+        secureTextField.typeText("P@ssw0rd")
+        app.buttons["Login"].tap()
     }
 }

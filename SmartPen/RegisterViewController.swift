@@ -81,10 +81,10 @@ class RegisterViewController: UIViewController{
             print("Could not fetch. \(error), \(error.userInfo)")
         }
 
-        // [Testing] test the number of registered user and print out the database location
-        // print("[Log]\n People's Count:\(people.count) \n")
-        // let storeUrl = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url
-        // print(storeUrl!)
+         // [Testing] test the number of registered user and print out the database location
+        print("The CoreData DB files stored here:\n")
+        let storeUrl = appDelegate.persistentContainer.persistentStoreCoordinator.persistentStores.first?.url
+        print(storeUrl!)
     }
 
     @IBAction func textFieldTouchDown(_ sender: UITextField) {
