@@ -57,7 +57,7 @@ class LoginViewController: UIViewController {
 
 
         // Password Verification
-        let (valid, text) = retrievePassword(Username: username, Password: password)
+        let (valid, text) = verfiyPassword(Username: username, Password: password)
 
         if (valid){
             // save login record
@@ -89,12 +89,7 @@ class LoginViewController: UIViewController {
         }
     }
 
-    @IBAction func skipLoginButtonTapped(_ sender: UIButton) {
-        // go back to canvas page
-        self.dismiss(animated: true, completion: nil)
-    }
-
-    func retrievePassword(Username username: String, Password inputedPassword: String) -> (valid: Bool, result: String) {
+    func verfiyPassword(Username username: String, Password inputedPassword: String) -> (valid: Bool, result: String) {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
             return (false, "")
         }
@@ -126,4 +121,10 @@ class LoginViewController: UIViewController {
         }
         return(false, "Cannot connect to database, please contact administrator.")
     }
+
+    @IBAction func skipLoginButtonTapped(_ sender: UIButton) {
+        // go back to canvas page
+        self.dismiss(animated: true, completion: nil)
+    }
+
 }
