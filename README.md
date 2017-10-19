@@ -54,7 +54,7 @@ Delegation is a pattern that enables one class to hand off its task to another c
       }
   }
   ```
-  
+
 ![image](./SettingViewScreenShot.png)
 
 Then the CanvasViewController will adopt and confirm the protocol, and he got the object sent by the settingViewController as `self`, so he got the setting values of every thing: the brush size, color, transparency etc. then all the current setting can be updated.
@@ -84,6 +84,7 @@ extension CanvasViewController: SettingsViewControllerDelegate {
 }
 ```
 
+![image](./CanvasViewScreenShot.png)
 
 ## 2 Parts could be improved
 
