@@ -105,6 +105,13 @@ This need to do more pratices and I wish somene can shore something about that.
 - Use multi-finger gestures to enhance the experience of some apps.
 
 ## 4 iOS Life Cycle
+- Five different Execution states of an App:
+    Not running / Inactive / Active / Background / Suspended
+- Something about the App Termination
+  - Misbehaving or not responding
+  - Suspended
+  - user can terminate
+- Apps must be prepared for termination to happen at any time and should not wait to save user data.
 
 ## 5 Comparison between Swift and C#
 
